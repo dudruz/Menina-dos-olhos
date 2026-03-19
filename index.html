@@ -1,0 +1,3328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Menina dos Olhos – Óculos de grau, solar e armações com conforto, beleza e qualidade. Atendimento personalizado para o seu olhar." />
+  <meta name="keywords" content="óculos de grau, óculos solar, armações, ótica, menina dos olhos" />
+  <meta property="og:title" content="Menina dos Olhos – Óptica Premium" />
+  <meta property="og:description" content="Conforto, beleza e qualidade para o seu olhar." />
+  <meta property="og:type" content="website" />
+  <title>Menina dos Olhos – Óptica Premium</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+/* ═══════════════════════════════════════════════════════════════
+   MENINA DOS OLHOS — Stylesheet
+   Versão: 1.0 | Paleta e tipografia conforme briefing
+   Estrutura:
+     1. CSS Variables & Reset
+     2. Base & Typography
+     3. Layout Utilities
+     4. Components (buttons, badges, tags)
+     5. Header & Navegação
+     6. Hero
+     7. Section Shared
+     8. Categorias
+     9. Diferenciais
+    10. Vitrine de Produtos
+    11. Depoimentos
+    12. FAQ
+    13. CTA Final
+    14. Footer
+    15. WhatsApp FAB
+    16. Animations & Scroll
+    17. Responsive
+═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────
+   1. CSS VARIABLES & RESET
+───────────────────────────────────────── */
+:root {
+  /* Paleta */
+  --black:      #000000;
+  --blue:       #438BC9;
+  --green:      #53B851;
+  --dark-blue:  #2F446D;
+  --mid-blue:   #3D83C1;
+  --white:      #FBFCFC;
+  --ui-gray:    #A6B6CC;
+
+  /* Derivados de uso */
+  --dark:       #080d18;
+  --dark-2:     #0d1421;
+  --dark-3:     #111d30;
+  --surface:    #141e30;
+  --surface-2:  #1a2844;
+  --border:     rgba(67, 139, 201, 0.15);
+  --border-soft: rgba(166, 182, 204, 0.1);
+  --text-muted: #7a92b0;
+
+  /* Gradientes */
+  --grad-main:  linear-gradient(135deg, var(--dark-blue), var(--blue));
+  --grad-accent: linear-gradient(135deg, var(--blue), var(--green));
+  --grad-hero:  linear-gradient(160deg, #050b18 0%, #0b1628 40%, #0d1e22 100%);
+
+  /* Tipografia */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Espaçamentos */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 80px;
+  --spacing-3xl: 120px;
+
+  /* Raios */
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+  --radius-full: 9999px;
+
+  /* Transições */
+  --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+
+  /* Sombras */
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md:  0 4px 24px rgba(0,0,0,0.4);
+  --shadow-lg:  0 8px 48px rgba(0,0,0,0.5);
+  --shadow-glow-blue: 0 0 40px rgba(67, 139, 201, 0.25);
+  --shadow-glow-green: 0 0 40px rgba(83, 184, 81, 0.2);
+
+  /* Header */
+  --header-h: 72px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--dark);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { list-style: none; }
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.hide-mobile { display: none; }
+
+/* ─────────────────────────────────────────
+   2. BASE & TYPOGRAPHY
+───────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+p { line-height: 1.7; }
+
+em { font-style: normal; }
+
+/* ─────────────────────────────────────────
+   3. LAYOUT UTILITIES
+───────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--spacing-lg);
+}
+
+/* ─────────────────────────────────────────
+   4. COMPONENTS
+───────────────────────────────────────── */
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: all var(--duration-base) var(--ease);
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease);
+  border-radius: inherit;
+  background: rgba(255,255,255,0.1);
+}
+
+.btn:hover::before { opacity: 1; }
+
+/* Primary */
+.btn--primary {
+  background: var(--grad-accent);
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(67, 139, 201, 0.35);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(67, 139, 201, 0.5);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+}
+
+/* Outline */
+.btn--outline {
+  border: 1.5px solid rgba(67, 139, 201, 0.5);
+  color: var(--blue);
+  background: transparent;
+}
+
+.btn--outline:hover {
+  border-color: var(--blue);
+  background: rgba(67, 139, 201, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Ghost (sutil) */
+.btn--ghost {
+  color: var(--ui-gray);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.btn--ghost:hover {
+  color: var(--white);
+  border-color: rgba(67, 139, 201, 0.4);
+  background: rgba(67, 139, 201, 0.06);
+  transform: translateY(-1px);
+}
+
+/* White (para fundo escuro/colorido) */
+.btn--white {
+  background: var(--white);
+  color: var(--dark-blue);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+}
+
+.btn--white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 36px rgba(0,0,0,0.35);
+}
+
+/* Sizes */
+.btn--sm  { padding: 9px 18px; font-size: 0.82rem; }
+.btn--lg  { padding: 16px 36px; font-size: 1rem; }
+.btn--full { width: 100%; justify-content: center; }
+
+
+/* ─────────────────────────────────────────
+   5. HEADER & NAVEGAÇÃO
+───────────────────────────────────────── */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  transition: background var(--duration-slow) var(--ease),
+              box-shadow var(--duration-slow) var(--ease),
+              backdrop-filter var(--duration-slow) var(--ease);
+}
+
+/* Estado scrolled: adiciona blur e fundo */
+.header.is-scrolled {
+  background: rgba(8, 13, 24, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--border), var(--shadow-md);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--spacing-lg);
+}
+
+/* Logo */
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logo__icon {
+  width: 36px;
+  height: auto;
+  color: var(--blue);
+  transition: color var(--duration-base) var(--ease);
+}
+
+.header__logo:hover .logo__icon { color: var(--green); }
+
+.logo__text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+/* Nav desktop */
+.header__nav { margin-left: auto; }
+
+.nav__list {
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.nav__link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ui-gray);
+  transition: color var(--duration-base) var(--ease);
+  position: relative;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--blue);
+  transition: width var(--duration-base) var(--ease);
+}
+
+.nav__link:hover { color: var(--white); }
+.nav__link:hover::after { width: 100%; }
+
+/* Toggle mobile */
+.header__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+  margin-left: auto;
+}
+
+.toggle__bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ui-gray);
+  border-radius: var(--radius-full);
+  transition: all var(--duration-base) var(--ease);
+  transform-origin: center;
+}
+
+.header__toggle[aria-expanded="true"] .toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.header__toggle[aria-expanded="true"] .toggle__bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.header__toggle[aria-expanded="true"] .toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Menu mobile */
+.mobile-menu {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  background: rgba(8, 13, 24, 0.98);
+  backdrop-filter: blur(24px);
+  border-top: 1px solid var(--border);
+  padding: var(--spacing-lg);
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--duration-slow) var(--ease);
+  z-index: 999;
+}
+
+.mobile-menu.is-open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.mobile-menu__link {
+  display: block;
+  padding: var(--spacing-sm) 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ui-gray);
+  border-bottom: 1px solid var(--border-soft);
+  transition: color var(--duration-base) var(--ease);
+}
+
+.mobile-menu__link:hover { color: var(--white); }
+
+
+/* ─────────────────────────────────────────
+   6. HERO
+───────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--header-h);
+  background: var(--grad-hero);
+}
+
+/* Fundo animado */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: orbFloat 8s ease-in-out infinite;
+}
+
+.hero__orb--1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(67, 139, 201, 0.18) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  animation-duration: 10s;
+}
+
+.hero__orb--2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(83, 184, 81, 0.12) 0%, transparent 70%);
+  bottom: -80px;
+  left: -80px;
+  animation-duration: 12s;
+  animation-delay: -3s;
+}
+
+.hero__orb--3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(47, 68, 109, 0.3) 0%, transparent 70%);
+  top: 40%;
+  left: 30%;
+  animation-duration: 14s;
+  animation-delay: -6s;
+}
+
+/* Grid sutil */
+.hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(67, 139, 201, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(67, 139, 201, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.97); }
+}
+
+/* Inner layout */
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  align-items: center;
+  padding-block: var(--spacing-3xl) var(--spacing-2xl);
+}
+
+/* Content */
+.hero__content { max-width: 560px; }
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ui-gray);
+  margin-bottom: var(--spacing-lg);
+  background: rgba(67, 139, 201, 0.05);
+}
+
+.badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px rgba(83, 184, 81, 0.6);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+.hero__headline {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--spacing-lg);
+  color: var(--white);
+}
+
+.hero__highlight {
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero__subheadline {
+  font-size: 1.05rem;
+  color: var(--ui-gray);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.7;
+}
+
+.hero__ctas {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Trust indicators */
+.hero__trust {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-soft);
+}
+
+.trust__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trust__item strong {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--white);
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.trust__item span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.trust__divider {
+  width: 1px;
+  height: 36px;
+  background: var(--border-soft);
+}
+
+/* Visual hero (olho) */
+.hero__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero__eye-wrap {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__eye {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 30px rgba(67, 139, 201, 0.35))
+          drop-shadow(0 0 60px rgba(83, 184, 81, 0.15));
+  animation: eyeBreath 4s ease-in-out infinite;
+}
+
+@keyframes eyeBreath {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.eye__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid;
+  animation: ringExpand 3s ease-out infinite;
+}
+
+.eye__ring--1 {
+  width: 280px;
+  height: 280px;
+  border-color: rgba(67, 139, 201, 0.2);
+  animation-delay: 0s;
+}
+
+.eye__ring--2 {
+  width: 340px;
+  height: 340px;
+  border-color: rgba(83, 184, 81, 0.1);
+  animation-delay: 1.5s;
+}
+
+@keyframes ringExpand {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* Scroll indicator */
+.hero__scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.scroll__line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--ui-gray), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.001% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+
+/* ─────────────────────────────────────────
+   7. SECTION SHARED
+───────────────────────────────────────── */
+.section {
+  padding-block: var(--spacing-3xl);
+}
+
+.section__header {
+  text-align: center;
+  max-width: 580px;
+  margin-inline: auto;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.section__tag {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border: 1px solid rgba(67, 139, 201, 0.3);
+  background: rgba(67, 139, 201, 0.06);
+  margin-bottom: var(--spacing-md);
+}
+
+.section__tag--light {
+  color: rgba(255,255,255,0.8);
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+}
+
+.section__title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--white);
+  margin-bottom: var(--spacing-md);
+}
+
+.section__subtitle {
+  font-size: 1rem;
+  color: var(--ui-gray);
+  line-height: 1.7;
+}
+
+
+/* ─────────────────────────────────────────
+   8. CATEGORIAS
+───────────────────────────────────────── */
+.categorias {
+  background: var(--dark-2);
+  position: relative;
+}
+
+.categorias::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.categorias__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.categoria-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--duration-slow) var(--ease-spring),
+              box-shadow var(--duration-slow) var(--ease),
+              border-color var(--duration-base) var(--ease);
+}
+
+.categoria-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
+  border-color: rgba(67, 139, 201, 0.4);
+}
+
+.categoria-card--featured {
+  border-color: rgba(83, 184, 81, 0.3);
+}
+
+.categoria-card--featured:hover {
+  box-shadow: var(--shadow-lg), var(--shadow-glow-green);
+  border-color: rgba(83, 184, 81, 0.5);
+}
+
+.categoria-card__badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--green);
+  color: var(--white);
+  box-shadow: 0 2px 12px rgba(83, 184, 81, 0.4);
+}
+
+.categoria-card__image {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+}
+
+.categoria-card__image svg {
+  width: 100%;
+  height: 100%;
+  transition: transform var(--duration-slow) var(--ease);
+}
+
+.categoria-card:hover .categoria-card__image svg {
+  transform: scale(1.04);
+}
+
+.categoria-card__body {
+  padding: var(--spacing-lg);
+}
+
+.categoria-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: var(--white);
+}
+
+.categoria-card__desc {
+  font-size: 0.88rem;
+  color: var(--ui-gray);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+
+/* ─────────────────────────────────────────
+   9. DIFERENCIAIS
+───────────────────────────────────────── */
+.diferenciais {
+  background: var(--dark);
+}
+
+.diferenciais__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.diferencial {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: transform var(--duration-slow) var(--ease-spring),
+              border-color var(--duration-base) var(--ease),
+              box-shadow var(--duration-slow) var(--ease);
+}
+
+.diferencial:hover {
+  transform: translateY(-5px);
+  border-color: rgba(67, 139, 201, 0.3);
+  box-shadow: var(--shadow-md), 0 0 30px rgba(67, 139, 201, 0.1);
+}
+
+.diferencial__icon {
+  width: 56px;
+  height: 56px;
+  margin-inline: auto;
+  margin-bottom: var(--spacing-md);
+}
+
+.diferencial__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.diferencial__title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: var(--white);
+}
+
+.diferencial__desc {
+  font-size: 0.85rem;
+  color: var(--ui-gray);
+  line-height: 1.65;
+}
+
+
+/* ─────────────────────────────────────────
+   10. VITRINE DE PRODUTOS
+───────────────────────────────────────── */
+.vitrine {
+  background: var(--dark-2);
+  position: relative;
+}
+
+.vitrine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(83, 184, 81, 0.3), transparent);
+}
+
+.vitrine__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.produto-card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--duration-slow) var(--ease-spring),
+              box-shadow var(--duration-slow) var(--ease),
+              border-color var(--duration-base) var(--ease);
+}
+
+.produto-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
+  border-color: rgba(67, 139, 201, 0.4);
+}
+
+/* Imagem com overlay ao hover */
+.produto-card__image {
+  position: relative;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+}
+
+.produto-card__image svg {
+  width: 100%;
+  height: 100%;
+  transition: transform var(--duration-slow) var(--ease);
+}
+
+.produto-card:hover .produto-card__image svg {
+  transform: scale(1.06);
+}
+
+.produto-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 13, 24, 0.7);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease);
+  backdrop-filter: blur(4px);
+}
+
+.produto-card:hover .produto-card__overlay {
+  opacity: 1;
+}
+
+.produto-card__body {
+  padding: var(--spacing-md);
+}
+
+.produto-card__cat {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.produto-card__name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.produto-card__desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.55;
+}
+
+.vitrine__cta {
+  text-align: center;
+}
+
+
+/* ─────────────────────────────────────────
+   11. DEPOIMENTOS
+───────────────────────────────────────── */
+.depoimentos {
+  background: var(--dark);
+}
+
+.depoimentos__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.depoimento {
+  padding: var(--spacing-xl);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  transition: transform var(--duration-slow) var(--ease-spring),
+              border-color var(--duration-base) var(--ease);
+}
+
+.depoimento:hover {
+  transform: translateY(-4px);
+  border-color: rgba(67, 139, 201, 0.25);
+}
+
+.depoimento__stars {
+  font-size: 1rem;
+  color: #f5c842;
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 2px;
+}
+
+.depoimento__texto {
+  font-size: 0.92rem;
+  color: var(--ui-gray);
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: var(--spacing-lg);
+}
+
+.depoimento__autor {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.autor__avatar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.autor__nome {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+  font-style: normal;
+}
+
+.autor__local {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+
+/* ─────────────────────────────────────────
+   12. FAQ
+───────────────────────────────────────── */
+.faq {
+  background: var(--dark-2);
+}
+
+.faq__container {
+  max-width: 760px;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq__item {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--duration-base) var(--ease);
+}
+
+.faq__item[open] {
+  border-color: rgba(67, 139, 201, 0.3);
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  transition: color var(--duration-base) var(--ease);
+  user-select: none;
+}
+
+.faq__question:hover { color: var(--blue); }
+
+.faq__arrow {
+  flex-shrink: 0;
+  color: var(--ui-gray);
+  transition: transform var(--duration-base) var(--ease),
+              color var(--duration-base) var(--ease);
+}
+
+.faq__item[open] .faq__arrow {
+  transform: rotate(180deg);
+  color: var(--blue);
+}
+
+.faq__answer {
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+  animation: faqOpen 0.25s var(--ease);
+}
+
+@keyframes faqOpen {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.faq__answer p {
+  font-size: 0.9rem;
+  color: var(--ui-gray);
+  line-height: 1.7;
+}
+
+
+/* ─────────────────────────────────────────
+   13. CTA FINAL
+───────────────────────────────────────── */
+.cta-final {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0d1e3d 0%, #0f2840 50%, #0a1f1a 100%);
+  padding-block: var(--spacing-3xl);
+}
+
+.cta-final__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cta-final__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.cta-final__orb--1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(67, 139, 201, 0.2) 0%, transparent 70%);
+  top: -200px;
+  left: -100px;
+}
+
+.cta-final__orb--2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(83, 184, 81, 0.15) 0%, transparent 70%);
+  bottom: -150px;
+  right: -50px;
+}
+
+.cta-final__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-final__content {
+  text-align: center;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.cta-final__title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.1;
+}
+
+.cta-final__title em {
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta-final__subtitle {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.7;
+}
+
+
+/* ─────────────────────────────────────────
+   14. FOOTER
+───────────────────────────────────────── */
+.footer {
+  background: var(--black);
+  border-top: 1px solid var(--border-soft);
+  padding-top: var(--spacing-3xl);
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.footer__logo { margin-bottom: var(--spacing-md); }
+
+.footer__tagline {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.social__link {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  transition: all var(--duration-base) var(--ease);
+}
+
+.social__link:hover {
+  color: var(--white);
+  border-color: rgba(67, 139, 201, 0.4);
+  background: rgba(67, 139, 201, 0.08);
+  transform: translateY(-2px);
+}
+
+.footer__nav-title {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__nav-list a {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  transition: color var(--duration-base) var(--ease);
+}
+
+.footer__nav-list a:hover { color: var(--white); }
+
+.footer__contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.footer__contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer__contact-list svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--blue);
+}
+
+.footer__contact-list a {
+  transition: color var(--duration-base) var(--ease);
+}
+
+.footer__contact-list a:hover { color: var(--white); }
+
+.footer__bottom {
+  padding-block: var(--spacing-lg);
+}
+
+.footer__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.footer__bottom p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.footer__bottom p:last-child {
+  color: rgba(67, 139, 201, 0.5);
+}
+
+
+/* ─────────────────────────────────────────
+   15. WHATSAPP FAB
+───────────────────────────────────────── */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  transition: transform var(--duration-base) var(--ease-spring),
+              box-shadow var(--duration-base) var(--ease);
+  animation: fabBounce 0.6s var(--ease-spring) 1s both;
+}
+
+@keyframes fabBounce {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.whatsapp-fab:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-fab__tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  white-space: nowrap;
+  background: rgba(8, 13, 24, 0.95);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-soft);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease);
+}
+
+.whatsapp-fab:hover .whatsapp-fab__tooltip {
+  opacity: 1;
+}
+
+
+/* ─────────────────────────────────────────
+   16. ANIMATIONS & SCROLL
+───────────────────────────────────────── */
+
+/* Elementos a animar */
+[data-animate] {
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease),
+              transform var(--duration-slow) var(--ease);
+}
+
+[data-animate="fade-up"] {
+  transform: translateY(30px);
+}
+
+[data-animate="fade-left"] {
+  transform: translateX(30px);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+
+/* ─────────────────────────────────────────
+   17. RESPONSIVE
+───────────────────────────────────────── */
+
+/* ── Tablet ── */
+@media (min-width: 768px) {
+  .hide-mobile { display: inline; }
+}
+
+@media (max-width: 1100px) {
+  .diferenciais__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vitrine__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .footer__brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --spacing-3xl: 80px;
+    --spacing-2xl: 60px;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-block: var(--spacing-2xl) var(--spacing-xl);
+  }
+
+  .hero__content { max-width: 100%; }
+
+  .hero__badge,
+  .hero__ctas,
+  .hero__trust {
+    justify-content: center;
+  }
+
+  .hero__visual {
+    display: none;
+  }
+
+  .categorias__grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+  .depoimentos__grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  /* Header: mostrar toggle, esconder nav desktop */
+  .header__nav { display: none; }
+  .header__inner .btn--primary { display: none; }
+  .header__toggle { display: flex; }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --spacing-3xl: 60px;
+    --spacing-2xl: 40px;
+    --header-h: 64px;
+  }
+
+  .container { padding-inline: var(--spacing-md); }
+
+  .hero__headline { font-size: 2.2rem; }
+  .hero__ctas { flex-direction: column; align-items: center; }
+  .hero__trust { flex-direction: column; gap: var(--spacing-md); text-align: center; }
+  .trust__divider { display: none; }
+
+  .diferenciais__grid { grid-template-columns: 1fr; }
+  .vitrine__grid { grid-template-columns: 1fr; }
+
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .footer__brand { grid-column: 1; }
+  .footer__bottom-inner { flex-direction: column; text-align: center; }
+
+  .whatsapp-fab {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .section__title { font-size: 1.7rem; }
+  .cta-final__title { font-size: 1.9rem; }
+}
+
+  
+/* ─────────────────────────────────────────
+   CONSULTA COM OPTOMETRISTA
+───────────────────────────────────────── */
+.consulta {
+  background: var(--dark);
+  position: relative;
+}
+.consulta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(83,184,81,0.3), transparent);
+}
+.consulta__layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: var(--spacing-2xl);
+  align-items: start;
+}
+.consulta__agenda {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+}
+.agenda__card {
+  background: var(--surface);
+  border: 1px solid rgba(67,139,201,0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md), 0 0 40px rgba(67,139,201,0.08);
+}
+.agenda__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+}
+.agenda__icon { width: 44px; height: 44px; }
+.agenda__badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(67,139,201,0.12);
+  color: var(--blue);
+  border: 1px solid rgba(67,139,201,0.25);
+}
+.agenda__date { margin-bottom: var(--spacing-lg); }
+.agenda__day {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.agenda__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-soft);
+}
+.agenda__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--ui-gray);
+}
+.agenda__meta-item svg { color: var(--blue); flex-shrink: 0; }
+.agenda__note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: var(--spacing-sm);
+}
+.agenda__tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: var(--spacing-md);
+  background: rgba(83,184,81,0.06);
+  border: 1px solid rgba(83,184,81,0.18);
+  border-radius: var(--radius-md);
+  font-size: 0.84rem;
+  color: var(--ui-gray);
+  line-height: 1.6;
+}
+.agenda__tip svg { color: var(--green); flex-shrink: 0; margin-top: 2px; }
+.agenda__tip strong { color: var(--white); }
+.consulta__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+.medico__card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--duration-base) var(--ease);
+}
+.medico__card:hover { border-color: rgba(67,139,201,0.3); }
+.medico__avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 0 0 3px rgba(67,139,201,0.25);
+}
+.medico__avatar svg { width: 100%; height: 100%; }
+.medico__nome {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.medico__titulo {
+  font-size: 0.82rem;
+  color: var(--blue);
+  font-weight: 500;
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+.medico__tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.medico__tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(67,139,201,0.08);
+  border: 1px solid rgba(67,139,201,0.2);
+  color: var(--ui-gray);
+}
+.procedimento__bloco {
+  padding: var(--spacing-xl);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--duration-base) var(--ease);
+}
+.procedimento__bloco:hover { border-color: rgba(67,139,201,0.25); }
+.procedimento__bloco--highlight {
+  border-color: rgba(83,184,81,0.2);
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(83,184,81,0.04) 100%);
+}
+.procedimento__titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--spacing-md);
+}
+.procedimento__bloco > p {
+  font-size: 0.9rem;
+  color: var(--ui-gray);
+  line-height: 1.7;
+}
+.procedimento__bloco > p strong { color: var(--white); }
+.procedimento__steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+.procedimento__steps li {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+.step__num {
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--grad-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--white);
+}
+.procedimento__steps strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.procedimento__steps p {
+  font-size: 0.84rem;
+  color: var(--ui-gray);
+  margin: 0;
+}
+.procedimento__checks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.procedimento__checks li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--ui-gray);
+}
+.procedimento__checks li span {
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+@media (max-width: 1000px) {
+  .consulta__layout { grid-template-columns: 1fr; }
+  .consulta__agenda { position: static; max-width: 480px; margin-inline: auto; width: 100%; }
+}
+@media (max-width: 600px) {
+  .medico__card { flex-direction: column; text-align: center; }
+  .medico__tags { justify-content: center; }
+  .agenda__day { font-size: 1.3rem; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       HEADER / NAVEGAÇÃO FIXA
+  ═══════════════════════════════════════════ -->
+  <header class="header" id="header" role="banner">
+    <div class="container header__inner">
+
+      <!-- Logo -->
+      <a href="#hero" class="header__logo" aria-label="Menina dos Olhos – Início">
+        <!-- Ícone de olho estilizado SVG inline -->
+        <svg class="logo__icon" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M20 2C10 2 2 12 2 12C2 12 10 22 20 22C30 22 38 12 38 12C38 12 30 2 20 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+          <circle cx="20" cy="12" r="5" fill="currentColor"/>
+          <circle cx="21.5" cy="10.5" r="1.5" fill="var(--white)"/>
+        </svg>
+        <span class="logo__text">Menina dos Olhos</span>
+      </a>
+
+      <!-- Navegação desktop -->
+      <nav class="header__nav" aria-label="Navegação principal">
+        <ul class="nav__list" role="list">
+          <li><a href="#categorias" class="nav__link">Produtos</a></li>
+          <li><a href="#diferenciais" class="nav__link">Diferenciais</a></li>
+          <li><a href="#vitrine" class="nav__link">Vitrine</a></li>
+          <li><a href="#consulta" class="nav__link">Consulta</a></li>
+          <li><a href="#depoimentos" class="nav__link">Depoimentos</a></li>
+          <li><a href="#faq" class="nav__link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA header -->
+      <a href="https://wa.me/5531900000000?text=Olá!%20Quero%20um%20orçamento" 
+         class="btn btn--primary btn--sm" 
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Solicitar orçamento via WhatsApp">
+        Solicitar orçamento
+      </a>
+
+      <!-- Botão hambúrguer mobile -->
+      <button class="header__toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="toggle__bar"></span>
+        <span class="toggle__bar"></span>
+        <span class="toggle__bar"></span>
+      </button>
+
+    </div>
+
+    <!-- Menu mobile -->
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile" aria-hidden="true">
+      <ul class="mobile-menu__list" role="list">
+        <li><a href="#categorias" class="mobile-menu__link">Produtos</a></li>
+        <li><a href="#diferenciais" class="mobile-menu__link">Diferenciais</a></li>
+        <li><a href="#vitrine" class="mobile-menu__link">Vitrine</a></li>
+        <li><a href="#consulta" class="mobile-menu__link">Consulta</a></li>
+        <li><a href="#depoimentos" class="mobile-menu__link">Depoimentos</a></li>
+        <li><a href="#faq" class="mobile-menu__link">FAQ</a></li>
+        <li>
+          <a href="https://wa.me/5531900000000?text=Olá!%20Quero%20um%20orçamento" 
+             class="btn btn--primary btn--full" 
+             target="_blank" rel="noopener noreferrer">
+            Solicitar orçamento
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════════
+       1. HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-labelledby="heroHeading">
+
+    <!-- Fundo animado: orbs e glow -->
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__orb hero__orb--1"></div>
+      <div class="hero__orb hero__orb--2"></div>
+      <div class="hero__orb hero__orb--3"></div>
+      <div class="hero__grid"></div>
+    </div>
+
+    <div class="container hero__inner">
+
+      <!-- Conteúdo textual -->
+      <div class="hero__content">
+        <div class="hero__badge" data-animate="fade-up">
+          <span class="badge__dot"></span>
+          <span>Óptica premium · Atendimento personalizado</span>
+        </div>
+
+        <h1 class="hero__headline" id="heroHeading" data-animate="fade-up" data-delay="100">
+          Conforto, beleza e<br />
+          <em class="hero__highlight">qualidade</em> para<br />
+          o seu olhar
+        </h1>
+
+        <p class="hero__subheadline" data-animate="fade-up" data-delay="200">
+          Encontre o modelo ideal com atendimento personalizado.<br class="hide-mobile" />
+          Óculos que refletem quem você é.
+        </p>
+
+        <div class="hero__ctas" data-animate="fade-up" data-delay="300">
+          <a href="https://wa.me/5531900000000?text=Olá!%20Quero%20um%20orçamento"
+             class="btn btn--primary btn--lg"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Solicitar orçamento no WhatsApp">
+            <!-- Ícone WhatsApp -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Solicitar orçamento
+          </a>
+          <a href="#categorias" class="btn btn--outline btn--lg">
+            Ver produtos
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Indicadores de confiança -->
+        <div class="hero__trust" data-animate="fade-up" data-delay="400">
+          <div class="trust__item">
+            <strong>+500</strong>
+            <span>Clientes satisfeitos</span>
+          </div>
+          <div class="trust__divider" aria-hidden="true"></div>
+          <div class="trust__item">
+            <strong>100+</strong>
+            <span>Modelos disponíveis</span>
+          </div>
+          <div class="trust__divider" aria-hidden="true"></div>
+          <div class="trust__item">
+            <strong>5★</strong>
+            <span>Avaliação média</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual hero: ícone de olho grande estilizado -->
+      <div class="hero__visual" data-animate="fade-left" data-delay="200" aria-hidden="true">
+        <div class="hero__eye-wrap">
+          <svg class="hero__eye" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Forma do olho externo -->
+            <path d="M160 20C80 20 10 100 10 100C10 100 80 180 160 180C240 180 310 100 310 100C310 100 240 20 160 20Z"
+                  stroke="url(#eyeGrad)" stroke-width="3" fill="none" opacity="0.6"/>
+            <!-- Íris -->
+            <circle cx="160" cy="100" r="50" fill="url(#irisGrad)" opacity="0.9"/>
+            <!-- Pupila -->
+            <circle cx="160" cy="100" r="22" fill="#0a0e1a"/>
+            <!-- Reflexo -->
+            <circle cx="148" cy="88" r="10" fill="white" opacity="0.25"/>
+            <circle cx="170" cy="110" r="5" fill="white" opacity="0.15"/>
+            <!-- Cílios superiores decorativos -->
+            <line x1="100" y1="40" x2="95" y2="22" stroke="url(#eyeGrad)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="130" y1="26" x2="128" y2="8" stroke="url(#eyeGrad)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="160" y1="20" x2="160" y2="2" stroke="url(#eyeGrad)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="190" y1="26" x2="192" y2="8" stroke="url(#eyeGrad)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="220" y1="40" x2="225" y2="22" stroke="url(#eyeGrad)" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="eyeGrad" x1="10" y1="100" x2="310" y2="100" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#438BC9"/>
+                <stop offset="50%" stop-color="#3D83C1"/>
+                <stop offset="100%" stop-color="#53B851"/>
+              </linearGradient>
+              <radialGradient id="irisGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#53B851" stop-opacity="0.8"/>
+                <stop offset="40%" stop-color="#438BC9"/>
+                <stop offset="100%" stop-color="#2F446D"/>
+              </radialGradient>
+            </defs>
+          </svg>
+          <!-- Anéis decorativos -->
+          <div class="eye__ring eye__ring--1"></div>
+          <div class="eye__ring eye__ring--2"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-hidden="true">
+      <div class="scroll__line"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       2. CATEGORIAS
+  ═══════════════════════════════════════════ -->
+  <section class="section categorias" id="categorias" aria-labelledby="categoriasHeading">
+    <div class="container">
+
+      <div class="section__header" data-animate="fade-up">
+        <span class="section__tag">Nossos produtos</span>
+        <h2 class="section__title" id="categoriasHeading">
+          O modelo perfeito para cada momento
+        </h2>
+        <p class="section__subtitle">
+          Explore nossa coleção e encontre óculos que combinam com você.
+        </p>
+      </div>
+
+      <div class="categorias__grid">
+
+        <!-- Card: Óculos de Grau -->
+        <article class="categoria-card" data-animate="fade-up" data-delay="0">
+          <div class="categoria-card__image">
+            <!-- SVG placeholder de óculos de grau -->
+            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Óculos de grau">
+              <rect width="200" height="120" fill="url(#bg1)"/>
+              <!-- armação -->
+              <rect x="20" y="35" width="65" height="50" rx="20" stroke="#438BC9" stroke-width="3" fill="none"/>
+              <rect x="115" y="35" width="65" height="50" rx="20" stroke="#438BC9" stroke-width="3" fill="none"/>
+              <line x1="85" y1="58" x2="115" y2="58" stroke="#438BC9" stroke-width="3"/>
+              <line x1="5" y1="52" x2="20" y2="52" stroke="#438BC9" stroke-width="3"/>
+              <line x1="180" y1="52" x2="195" y2="52" stroke="#438BC9" stroke-width="3"/>
+              <!-- lentes com reflexo -->
+              <rect x="25" y="40" width="55" height="40" rx="16" fill="#438BC9" fill-opacity="0.15"/>
+              <rect x="120" y="40" width="55" height="40" rx="16" fill="#438BC9" fill-opacity="0.15"/>
+              <line x1="32" y1="48" x2="52" y2="44" stroke="white" stroke-width="1.5" stroke-opacity="0.4"/>
+              <line x1="127" y1="48" x2="147" y2="44" stroke="white" stroke-width="1.5" stroke-opacity="0.4"/>
+              <defs>
+                <linearGradient id="bg1" x1="0" y1="0" x2="200" y2="120">
+                  <stop offset="0%" stop-color="#0d1421"/>
+                  <stop offset="100%" stop-color="#1a2540"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="categoria-card__body">
+            <h3 class="categoria-card__title">Óculos de Grau</h3>
+            <p class="categoria-card__desc">Conforto visual com precisão óptica. Armações modernas para uso diário.</p>
+            <a href="#vitrine" class="btn btn--ghost btn--sm">
+              Ver opções
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card: Óculos Solar (destaque) -->
+        <article class="categoria-card categoria-card--featured" data-animate="fade-up" data-delay="100">
+          <div class="categoria-card__badge">Mais vendido</div>
+          <div class="categoria-card__image">
+            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Óculos solar">
+              <rect width="200" height="120" fill="url(#bg2)"/>
+              <!-- armação solar mais robusta -->
+              <rect x="18" y="32" width="70" height="52" rx="22" stroke="#53B851" stroke-width="3.5" fill="none"/>
+              <rect x="112" y="32" width="70" height="52" rx="22" stroke="#53B851" stroke-width="3.5" fill="none"/>
+              <line x1="88" y1="57" x2="112" y2="57" stroke="#53B851" stroke-width="3.5"/>
+              <line x1="3" y1="50" x2="18" y2="50" stroke="#53B851" stroke-width="3"/>
+              <line x1="182" y1="50" x2="197" y2="50" stroke="#53B851" stroke-width="3"/>
+              <!-- lentes escuras -->
+              <rect x="24" y="37" width="58" height="42" rx="18" fill="#53B851" fill-opacity="0.3"/>
+              <rect x="118" y="37" width="58" height="42" rx="18" fill="#53B851" fill-opacity="0.3"/>
+              <!-- reflexo solar -->
+              <ellipse cx="38" cy="48" rx="8" ry="4" fill="white" fill-opacity="0.15" transform="rotate(-20 38 48)"/>
+              <ellipse cx="132" cy="48" rx="8" ry="4" fill="white" fill-opacity="0.15" transform="rotate(-20 132 48)"/>
+              <defs>
+                <linearGradient id="bg2" x1="0" y1="0" x2="200" y2="120">
+                  <stop offset="0%" stop-color="#0f1f0f"/>
+                  <stop offset="100%" stop-color="#152a15"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="categoria-card__body">
+            <h3 class="categoria-card__title">Óculos Solar</h3>
+            <p class="categoria-card__desc">Proteção UV com estilo. Modelos exclusivos para todos os estilos e rostos.</p>
+            <a href="#vitrine" class="btn btn--primary btn--sm">
+              Ver opções
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card: Armações -->
+        <article class="categoria-card" data-animate="fade-up" data-delay="200">
+          <div class="categoria-card__image">
+            <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Armações">
+              <rect width="200" height="120" fill="url(#bg3)"/>
+              <!-- armação diferenciada – forma oval/cat-eye -->
+              <path d="M20 65 Q22 35 55 33 Q88 31 88 58 Q88 78 55 80 Q22 82 20 65Z" stroke="#A6B6CC" stroke-width="3" fill="none"/>
+              <path d="M112 65 Q110 35 145 33 Q178 31 180 58 Q178 78 145 80 Q110 82 112 65Z" stroke="#A6B6CC" stroke-width="3" fill="none"/>
+              <line x1="88" y1="56" x2="112" y2="56" stroke="#A6B6CC" stroke-width="2.5"/>
+              <line x1="5" y1="52" x2="20" y2="58" stroke="#A6B6CC" stroke-width="2.5"/>
+              <line x1="195" y1="52" x2="180" y2="58" stroke="#A6B6CC" stroke-width="2.5"/>
+              <!-- fill translúcido -->
+              <path d="M25 63 Q27 39 55 37 Q83 35 83 58 Q83 74 55 76 Q27 78 25 63Z" fill="#3D83C1" fill-opacity="0.12"/>
+              <path d="M117 63 Q115 39 145 37 Q175 35 175 58 Q173 74 145 76 Q115 78 117 63Z" fill="#3D83C1" fill-opacity="0.12"/>
+              <defs>
+                <linearGradient id="bg3" x1="0" y1="0" x2="200" y2="120">
+                  <stop offset="0%" stop-color="#101828"/>
+                  <stop offset="100%" stop-color="#1c2a40"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="categoria-card__body">
+            <h3 class="categoria-card__title">Armações</h3>
+            <p class="categoria-card__desc">Variedade de formatos, materiais e cores. Personalize seu look com liberdade.</p>
+            <a href="#vitrine" class="btn btn--ghost btn--sm">
+              Ver opções
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       3. DIFERENCIAIS
+  ═══════════════════════════════════════════ -->
+  <section class="section diferenciais" id="diferenciais" aria-labelledby="diferenciaisHeading">
+    <div class="container">
+
+      <div class="section__header" data-animate="fade-up">
+        <span class="section__tag">Por que nos escolher</span>
+        <h2 class="section__title" id="diferenciaisHeading">
+          Muito mais que um par de óculos
+        </h2>
+      </div>
+
+      <div class="diferenciais__grid">
+
+        <div class="diferencial" data-animate="fade-up" data-delay="0">
+          <div class="diferencial__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" fill="url(#dif1)" fill-opacity="0.15"/>
+              <path d="M24 14C20 14 14 19 14 24C14 29 20 34 24 34C28 34 34 29 34 24C34 19 28 14 24 14Z" stroke="url(#dif1)" stroke-width="2" fill="none"/>
+              <circle cx="24" cy="24" r="4" fill="url(#dif1)"/>
+              <path d="M24 10V14M24 34V38M10 24H14M34 24H38" stroke="url(#dif1)" stroke-width="2" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="dif1" x1="4" y1="4" x2="44" y2="44">
+                  <stop offset="0%" stop-color="#438BC9"/>
+                  <stop offset="100%" stop-color="#53B851"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h3 class="diferencial__title">Atendimento personalizado</h3>
+          <p class="diferencial__desc">Cada cliente recebe orientação exclusiva para encontrar o modelo ideal para seu rosto e estilo de vida.</p>
+        </div>
+
+        <div class="diferencial" data-animate="fade-up" data-delay="100">
+          <div class="diferencial__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" fill="url(#dif2)" fill-opacity="0.15"/>
+              <path d="M14 24L20 30L34 16" stroke="url(#dif2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 10C16.3 10 10 16.3 10 24C10 31.7 16.3 38 24 38C31.7 38 38 31.7 38 24C38 16.3 31.7 10 24 10Z" stroke="url(#dif2)" stroke-width="2"/>
+              <defs>
+                <linearGradient id="dif2" x1="4" y1="4" x2="44" y2="44">
+                  <stop offset="0%" stop-color="#53B851"/>
+                  <stop offset="100%" stop-color="#438BC9"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h3 class="diferencial__title">Qualidade garantida</h3>
+          <p class="diferencial__desc">Trabalhamos apenas com marcas reconhecidas e produtos com certificação óptica e proteção UV.</p>
+        </div>
+
+        <div class="diferencial" data-animate="fade-up" data-delay="200">
+          <div class="diferencial__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" fill="url(#dif3)" fill-opacity="0.15"/>
+              <path d="M24 14C19.6 14 16 17.6 16 22C16 26.4 19.6 30 24 30C28.4 30 32 26.4 32 22C32 17.6 28.4 14 24 14Z" stroke="url(#dif3)" stroke-width="2"/>
+              <path d="M18 34C18 31.8 20.7 30 24 30C27.3 30 30 31.8 30 34" stroke="url(#dif3)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M36 20H40M8 20H12" stroke="url(#dif3)" stroke-width="2" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="dif3" x1="4" y1="4" x2="44" y2="44">
+                  <stop offset="0%" stop-color="#3D83C1"/>
+                  <stop offset="100%" stop-color="#53B851"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h3 class="diferencial__title">Ajuste perfeito</h3>
+          <p class="diferencial__desc">Realizamos ajustes precisos para que seus óculos se encaixem com conforto total no seu rosto.</p>
+        </div>
+
+        <div class="diferencial" data-animate="fade-up" data-delay="300">
+          <div class="diferencial__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" fill="url(#dif4)" fill-opacity="0.15"/>
+              <rect x="14" y="20" width="8" height="12" rx="2" stroke="url(#dif4)" stroke-width="2"/>
+              <rect x="26" y="16" width="8" height="16" rx="2" stroke="url(#dif4)" stroke-width="2"/>
+              <path d="M12 32H36" stroke="url(#dif4)" stroke-width="2" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="dif4" x1="4" y1="4" x2="44" y2="44">
+                  <stop offset="0%" stop-color="#438BC9"/>
+                  <stop offset="100%" stop-color="#2F446D"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h3 class="diferencial__title">Variedade de modelos</h3>
+          <p class="diferencial__desc">Mais de 100 modelos em catálogo, desde clássicos até tendências internacionais para todos os gostos.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       4. VITRINE DE PRODUTOS
+  ═══════════════════════════════════════════ -->
+  <section class="section vitrine" id="vitrine" aria-labelledby="vitrineHeading">
+    <div class="container">
+
+      <div class="section__header" data-animate="fade-up">
+        <span class="section__tag">Vitrine</span>
+        <h2 class="section__title" id="vitrineHeading">
+          Destaques da coleção
+        </h2>
+        <p class="section__subtitle">
+          Seleção especial dos modelos mais procurados.
+        </p>
+      </div>
+
+      <div class="vitrine__grid">
+
+        <!-- Produto 1 -->
+        <article class="produto-card" data-animate="fade-up" data-delay="0">
+          <div class="produto-card__image">
+            <svg viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Modelo Classic Blue">
+              <rect width="240" height="160" fill="url(#p1bg)"/>
+              <rect x="25" y="50" width="80" height="60" rx="24" stroke="#438BC9" stroke-width="2.5" fill="none"/>
+              <rect x="135" y="50" width="80" height="60" rx="24" stroke="#438BC9" stroke-width="2.5" fill="none"/>
+              <line x1="105" y1="78" x2="135" y2="78" stroke="#438BC9" stroke-width="2.5"/>
+              <line x1="10" y1="70" x2="25" y2="70" stroke="#438BC9" stroke-width="2.5"/>
+              <line x1="215" y1="70" x2="230" y2="70" stroke="#438BC9" stroke-width="2.5"/>
+              <rect x="30" y="55" width="70" height="50" rx="20" fill="#438BC9" fill-opacity="0.12"/>
+              <rect x="140" y="55" width="70" height="50" rx="20" fill="#438BC9" fill-opacity="0.12"/>
+              <line x1="36" y1="65" x2="60" y2="60" stroke="white" stroke-width="1.5" stroke-opacity="0.3"/>
+              <line x1="146" y1="65" x2="170" y2="60" stroke="white" stroke-width="1.5" stroke-opacity="0.3"/>
+              <defs>
+                <linearGradient id="p1bg" x1="0" y1="0" x2="240" y2="160">
+                  <stop offset="0%" stop-color="#0d1421"/>
+                  <stop offset="100%" stop-color="#0e1e36"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="produto-card__overlay">
+              <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Classic%20Blue"
+                 class="btn btn--primary btn--sm"
+                 target="_blank" rel="noopener noreferrer">
+                Quero este
+              </a>
+            </div>
+          </div>
+          <div class="produto-card__body">
+            <span class="produto-card__cat">Óculos de grau</span>
+            <h3 class="produto-card__name">Classic Blue</h3>
+            <p class="produto-card__desc">Armação fina, leve e elegante. Ideal para uso diário.</p>
+            <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Classic%20Blue"
+               class="btn btn--primary btn--full"
+               target="_blank" rel="noopener noreferrer">
+              Quero este
+            </a>
+          </div>
+        </article>
+
+        <!-- Produto 2 -->
+        <article class="produto-card" data-animate="fade-up" data-delay="100">
+          <div class="produto-card__image">
+            <svg viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Modelo Verde Summer">
+              <rect width="240" height="160" fill="url(#p2bg)"/>
+              <path d="M25 85 Q27 48 65 45 Q103 42 103 75 Q103 102 65 105 Q27 108 25 85Z" stroke="#53B851" stroke-width="2.5" fill="none"/>
+              <path d="M137 85 Q135 48 175 45 Q213 42 215 75 Q213 102 175 105 Q135 108 137 85Z" stroke="#53B851" stroke-width="2.5" fill="none"/>
+              <line x1="103" y1="73" x2="137" y2="73" stroke="#53B851" stroke-width="2.5"/>
+              <line x1="10" y1="70" x2="25" y2="78" stroke="#53B851" stroke-width="2.5"/>
+              <line x1="230" y1="70" x2="215" y2="78" stroke="#53B851" stroke-width="2.5"/>
+              <path d="M30 83 Q32 52 65 49 Q98 46 98 75 Q98 98 65 101 Q32 104 30 83Z" fill="#53B851" fill-opacity="0.15"/>
+              <path d="M142 83 Q140 52 175 49 Q210 46 210 75 Q208 98 175 101 Q140 104 142 83Z" fill="#53B851" fill-opacity="0.15"/>
+              <defs>
+                <linearGradient id="p2bg" x1="0" y1="0" x2="240" y2="160">
+                  <stop offset="0%" stop-color="#0c190c"/>
+                  <stop offset="100%" stop-color="#122512"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="produto-card__overlay">
+              <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Verde%20Summer"
+                 class="btn btn--primary btn--sm"
+                 target="_blank" rel="noopener noreferrer">
+                Quero este
+              </a>
+            </div>
+          </div>
+          <div class="produto-card__body">
+            <span class="produto-card__cat">Óculos solar</span>
+            <h3 class="produto-card__name">Verde Summer</h3>
+            <p class="produto-card__desc">Cat-eye moderno com proteção UV400. Perfeito para o verão.</p>
+            <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Verde%20Summer"
+               class="btn btn--primary btn--full"
+               target="_blank" rel="noopener noreferrer">
+              Quero este
+            </a>
+          </div>
+        </article>
+
+        <!-- Produto 3 -->
+        <article class="produto-card" data-animate="fade-up" data-delay="200">
+          <div class="produto-card__image">
+            <svg viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Modelo Dark Navy">
+              <rect width="240" height="160" fill="url(#p3bg)"/>
+              <rect x="25" y="48" width="82" height="64" rx="10" stroke="#A6B6CC" stroke-width="3" fill="none"/>
+              <rect x="133" y="48" width="82" height="64" rx="10" stroke="#A6B6CC" stroke-width="3" fill="none"/>
+              <line x1="107" y1="79" x2="133" y2="79" stroke="#A6B6CC" stroke-width="3"/>
+              <line x1="10" y1="68" x2="25" y2="68" stroke="#A6B6CC" stroke-width="2.5"/>
+              <line x1="215" y1="68" x2="230" y2="68" stroke="#A6B6CC" stroke-width="2.5"/>
+              <rect x="30" y="53" width="72" height="54" rx="7" fill="#2F446D" fill-opacity="0.3"/>
+              <rect x="138" y="53" width="72" height="54" rx="7" fill="#2F446D" fill-opacity="0.3"/>
+              <line x1="36" y1="62" x2="62" y2="57" stroke="white" stroke-width="1.5" stroke-opacity="0.35"/>
+              <line x1="144" y1="62" x2="170" y2="57" stroke="white" stroke-width="1.5" stroke-opacity="0.35"/>
+              <defs>
+                <linearGradient id="p3bg" x1="0" y1="0" x2="240" y2="160">
+                  <stop offset="0%" stop-color="#080d1a"/>
+                  <stop offset="100%" stop-color="#101828"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="produto-card__overlay">
+              <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Dark%20Navy"
+                 class="btn btn--primary btn--sm"
+                 target="_blank" rel="noopener noreferrer">
+                Quero este
+              </a>
+            </div>
+          </div>
+          <div class="produto-card__body">
+            <span class="produto-card__cat">Armação</span>
+            <h3 class="produto-card__name">Dark Navy</h3>
+            <p class="produto-card__desc">Quadrado masculino/feminino com acabamento premium fosco.</p>
+            <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Dark%20Navy"
+               class="btn btn--primary btn--full"
+               target="_blank" rel="noopener noreferrer">
+              Quero este
+            </a>
+          </div>
+        </article>
+
+        <!-- Produto 4 -->
+        <article class="produto-card" data-animate="fade-up" data-delay="300">
+          <div class="produto-card__image">
+            <svg viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Modelo Steel Round">
+              <rect width="240" height="160" fill="url(#p4bg)"/>
+              <circle cx="75" cy="80" r="34" stroke="#3D83C1" stroke-width="2.5" fill="none"/>
+              <circle cx="165" cy="80" r="34" stroke="#3D83C1" stroke-width="2.5" fill="none"/>
+              <line x1="109" y1="80" x2="131" y2="80" stroke="#3D83C1" stroke-width="2.5"/>
+              <line x1="10" y1="72" x2="41" y2="72" stroke="#3D83C1" stroke-width="2.5"/>
+              <line x1="199" y1="72" x2="230" y2="72" stroke="#3D83C1" stroke-width="2.5"/>
+              <circle cx="75" cy="80" r="29" fill="#3D83C1" fill-opacity="0.1"/>
+              <circle cx="165" cy="80" r="29" fill="#3D83C1" fill-opacity="0.1"/>
+              <line x1="59" y1="65" x2="72" y2="62" stroke="white" stroke-width="1.5" stroke-opacity="0.3"/>
+              <line x1="149" y1="65" x2="162" y2="62" stroke="white" stroke-width="1.5" stroke-opacity="0.3"/>
+              <defs>
+                <linearGradient id="p4bg" x1="0" y1="0" x2="240" y2="160">
+                  <stop offset="0%" stop-color="#0c1a2e"/>
+                  <stop offset="100%" stop-color="#122038"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="produto-card__overlay">
+              <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Steel%20Round"
+                 class="btn btn--primary btn--sm"
+                 target="_blank" rel="noopener noreferrer">
+                Quero este
+              </a>
+            </div>
+          </div>
+          <div class="produto-card__body">
+            <span class="produto-card__cat">Óculos de grau</span>
+            <h3 class="produto-card__name">Steel Round</h3>
+            <p class="produto-card__desc">Redondo metálico ultraleve. Estilo retrô com toque contemporâneo.</p>
+            <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Steel%20Round"
+               class="btn btn--primary btn--full"
+               target="_blank" rel="noopener noreferrer">
+              Quero este
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="vitrine__cta" data-animate="fade-up">
+        <a href="https://wa.me/5531900000000?text=Quero%20ver%20todos%20os%20modelos"
+           class="btn btn--outline btn--lg"
+           target="_blank" rel="noopener noreferrer">
+          Ver catálogo completo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <!-- ═══════════════════════════════════════════
+       CONSULTA COM OPTOMETRISTA
+       ATUALIZAR MENSALMENTE:
+         - Data: <span id="consultaData">
+         - Hora: <span id="consultaHora">
+         - Vagas: <span id="consultaVagas">
+  ═══════════════════════════════════════════ -->
+  <section class="section consulta" id="consulta" aria-labelledby="consultaHeading">
+    <div class="container">
+
+      <div class="section__header" data-animate="fade-up">
+        <span class="section__tag">Saude Visual</span>
+        <h2 class="section__title" id="consultaHeading">
+          Exame de vista com<br />optometrista
+        </h2>
+        <p class="section__subtitle">
+          Uma vez por mes, nosso optometrista realiza exames completos aqui na loja.<br />
+          Cuide da sua saude visual com quem entende de optica.
+        </p>
+      </div>
+
+      <div class="consulta__layout">
+
+        <!-- Coluna esquerda: agenda -->
+        <div class="consulta__agenda" data-animate="fade-up" data-delay="0">
+
+          <div class="agenda__card">
+            <div class="agenda__header">
+              <div class="agenda__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="6" y="10" width="36" height="32" rx="6" stroke="url(#calGrad)" stroke-width="2" fill="none"/>
+                  <line x1="6" y1="20" x2="42" y2="20" stroke="url(#calGrad)" stroke-width="2"/>
+                  <line x1="16" y1="6" x2="16" y2="14" stroke="url(#calGrad)" stroke-width="2.5" stroke-linecap="round"/>
+                  <line x1="32" y1="6" x2="32" y2="14" stroke="url(#calGrad)" stroke-width="2.5" stroke-linecap="round"/>
+                  <rect x="15" y="26" width="8" height="8" rx="2" fill="url(#calGrad)" opacity="0.7"/>
+                  <defs>
+                    <linearGradient id="calGrad" x1="6" y1="6" x2="42" y2="42">
+                      <stop offset="0%" stop-color="#438BC9"/>
+                      <stop offset="100%" stop-color="#53B851"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <span class="agenda__badge">Proxima data</span>
+            </div>
+
+            <!-- ===== EDITAR TODO MES: data, hora e vagas ===== -->
+            <div class="agenda__date">
+              <span class="agenda__day" id="consultaData">19 de Abril de 2025</span>
+            </div>
+            <div class="agenda__meta">
+              <div class="agenda__meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span id="consultaHora">09h às 17h</span>
+              </div>
+              <div class="agenda__meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <span id="consultaVagas">8 vagas disponíveis</span>
+              </div>
+              <div class="agenda__meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>Na propria loja – Rua Exemplo, 123</span>
+              </div>
+            </div>
+            <!-- ================================================ -->
+
+            <a href="https://wa.me/5531900000000?text=Ola!%20Quero%20agendar%20meu%20exame%20de%20vista"
+               class="btn btn--primary btn--full"
+               target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Agendar pelo WhatsApp
+            </a>
+            <p class="agenda__note">Agendamento gratuito &middot; Atendimento por ordem de chegada</p>
+          </div>
+
+          <div class="agenda__tip" data-animate="fade-up" data-delay="100">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <p>Os exames acontecem <strong>uma vez por mes</strong>. Fique de olho nas nossas redes sociais para saber a proxima data disponivel.</p>
+          </div>
+        </div>
+
+        <!-- Coluna direita: medico + procedimento -->
+        <div class="consulta__info" data-animate="fade-left" data-delay="150">
+
+          <!-- Card medico -->
+          <div class="medico__card">
+            <div class="medico__avatar" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="url(#medBg)"/>
+                <circle cx="50" cy="38" r="18" fill="white" fill-opacity="0.3"/>
+                <path d="M18 85C18 68 32 56 50 56C68 56 82 68 82 85" fill="white" fill-opacity="0.3"/>
+                <path d="M34 58 L30 88 L70 88 L66 58 Q50 64 34 58Z" fill="white" fill-opacity="0.15"/>
+                <line x1="50" y1="64" x2="50" y2="80" stroke="url(#medGrad)" stroke-width="2"/>
+                <line x1="44" y1="70" x2="56" y2="70" stroke="url(#medGrad)" stroke-width="2"/>
+                <defs>
+                  <linearGradient id="medBg" x1="0" y1="0" x2="100" y2="100">
+                    <stop offset="0%" stop-color="#2F446D"/><stop offset="100%" stop-color="#438BC9"/>
+                  </linearGradient>
+                  <linearGradient id="medGrad" x1="0" y1="0" x2="100" y2="100">
+                    <stop offset="0%" stop-color="#438BC9"/><stop offset="100%" stop-color="#53B851"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="medico__info">
+              <!-- ===== EDITAR: nome e registro do profissional ===== -->
+              <h3 class="medico__nome">Dr(a). Nome do Profissional</h3>
+              <span class="medico__titulo">Optometrista &middot; CRO 00.000</span>
+              <!-- ==================================================== -->
+              <div class="medico__tags">
+                <span class="medico__tag">Exame de refracao</span>
+                <span class="medico__tag">Adaptacao de lentes</span>
+                <span class="medico__tag">Saude ocular</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- O que e optometrista -->
+          <div class="procedimento__bloco">
+            <h4 class="procedimento__titulo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#438BC9" stroke-width="2" aria-hidden="true">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+              </svg>
+              O que é um optometrista?
+            </h4>
+            <p>O <strong>optometrista</strong> é o profissional de saúde especializado em avaliação visual, diagnóstico de ametropias (miopia, hipermetropia, astigmatismo e presbiopia) e prescrição de óculos e lentes de contato. Atua de forma complementar ao oftalmologista no cuidado da saúde ocular cotidiana.</p>
+          </div>
+
+          <!-- Como e o exame -->
+          <div class="procedimento__bloco">
+            <h4 class="procedimento__titulo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53B851" stroke-width="2" aria-hidden="true">
+                <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+              Como é o exame de refração?
+            </h4>
+            <ol class="procedimento__steps">
+              <li>
+                <span class="step__num">01</span>
+                <div>
+                  <strong>Anamnese</strong>
+                  <p>O profissional conversa sobre seus hábitos visuais, queixas e histórico de uso de óculos.</p>
+                </div>
+              </li>
+              <li>
+                <span class="step__num">02</span>
+                <div>
+                  <strong>Acuidade visual</strong>
+                  <p>Leitura da tabela optométrica para medir a nitidez da visão à distância e de perto.</p>
+                </div>
+              </li>
+              <li>
+                <span class="step__num">03</span>
+                <div>
+                  <strong>Refração subjetiva</strong>
+                  <p>Com lentes de teste, o profissional determina o grau ideal para cada olho.</p>
+                </div>
+              </li>
+              <li>
+                <span class="step__num">04</span>
+                <div>
+                  <strong>Emissão da receita</strong>
+                  <p>Receita óptica emitida na hora. Duração média: 20 a 30 minutos por paciente.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Quem deve fazer -->
+          <div class="procedimento__bloco procedimento__bloco--highlight">
+            <h4 class="procedimento__titulo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#438BC9" stroke-width="2" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              Quem deve fazer o exame?
+            </h4>
+            <ul class="procedimento__checks">
+              <li><span>&#10003;</span> Quem sente dificuldade para enxergar de longe ou de perto</li>
+              <li><span>&#10003;</span> Quem tem dores de cabeça frequentes ao ler ou usar telas</li>
+              <li><span>&#10003;</span> Quem já usa óculos e quer revisar o grau (recomendado anualmente)</li>
+              <li><span>&#10003;</span> Quem quer começar a usar lentes de contato</li>
+              <li><span>&#10003;</span> Crianças em idade escolar (6 anos ou mais)</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       5. PROVA SOCIAL – DEPOIMENTOS
+  ═══════════════════════════════════════════ -->
+  <section class="section depoimentos" id="depoimentos" aria-labelledby="depoimentosHeading">
+    <div class="container">
+
+      <div class="section__header" data-animate="fade-up">
+        <span class="section__tag">Depoimentos</span>
+        <h2 class="section__title" id="depoimentosHeading">
+          O que nossos clientes dizem
+        </h2>
+      </div>
+
+      <div class="depoimentos__grid">
+
+        <blockquote class="depoimento" data-animate="fade-up" data-delay="0">
+          <div class="depoimento__stars" aria-label="5 estrelas">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+          <p class="depoimento__texto">"Fui atendida com muito cuidado. Me ajudaram a escolher o modelo certo para o formato do meu rosto. Os óculos ficaram perfeitos e recebo elogios todo dia!"</p>
+          <footer class="depoimento__autor">
+            <div class="autor__avatar" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="20" fill="url(#av1)"/>
+                <circle cx="20" cy="16" r="7" fill="white" fill-opacity="0.4"/>
+                <path d="M8 34C8 28 13.4 24 20 24C26.6 24 32 28 32 34" fill="white" fill-opacity="0.4"/>
+                <defs>
+                  <linearGradient id="av1" x1="0" y1="0" x2="40" y2="40">
+                    <stop offset="0%" stop-color="#438BC9"/>
+                    <stop offset="100%" stop-color="#2F446D"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div>
+              <cite class="autor__nome">Ana Carolina M.</cite>
+              <span class="autor__local">Belo Horizonte, MG</span>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="depoimento" data-animate="fade-up" data-delay="100">
+          <div class="depoimento__stars" aria-label="5 estrelas">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+          <p class="depoimento__texto">"Comprei meu primeiro óculos solar aqui e me apaixonei. O atendimento é diferenciado, explicaram tudo sobre a proteção UV e encontrei o modelo ideal em minutos."</p>
+          <footer class="depoimento__autor">
+            <div class="autor__avatar" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="20" fill="url(#av2)"/>
+                <circle cx="20" cy="16" r="7" fill="white" fill-opacity="0.4"/>
+                <path d="M8 34C8 28 13.4 24 20 24C26.6 24 32 28 32 34" fill="white" fill-opacity="0.4"/>
+                <defs>
+                  <linearGradient id="av2" x1="0" y1="0" x2="40" y2="40">
+                    <stop offset="0%" stop-color="#53B851"/>
+                    <stop offset="100%" stop-color="#2F446D"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div>
+              <cite class="autor__nome">Rafael S.</cite>
+              <span class="autor__local">Nova Lima, MG</span>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="depoimento" data-animate="fade-up" data-delay="200">
+          <div class="depoimento__stars" aria-label="5 estrelas">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+          <p class="depoimento__texto">"Variedade incrível e preço justo. O ajuste que fizeram foi impecável — nunca tive tanto conforto com óculos de grau. Já indiquei para todos da família!"</p>
+          <footer class="depoimento__autor">
+            <div class="autor__avatar" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="20" fill="url(#av3)"/>
+                <circle cx="20" cy="16" r="7" fill="white" fill-opacity="0.4"/>
+                <path d="M8 34C8 28 13.4 24 20 24C26.6 24 32 28 32 34" fill="white" fill-opacity="0.4"/>
+                <defs>
+                  <linearGradient id="av3" x1="0" y1="0" x2="40" y2="40">
+                    <stop offset="0%" stop-color="#3D83C1"/>
+                    <stop offset="100%" stop-color="#53B851"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div>
+              <cite class="autor__nome">Juliana P.</cite>
+              <span class="autor__local">Contagem, MG</span>
+            </div>
+          </footer>
+        </blockquote>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       6. FAQ – ACCORDION ANIMADO
+  ═══════════════════════════════════════════ -->
+  <section class="section faq" id="faq" aria-labelledby="faqHeading">
+    <div class="container faq__container">
+
+      <div class="section__header" data-animate="fade-up">
+        <span class="section__tag">Dúvidas frequentes</span>
+        <h2 class="section__title" id="faqHeading">
+          Perguntas & Respostas
+        </h2>
+      </div>
+
+      <div class="faq__list" data-animate="fade-up" data-delay="100">
+
+        <details class="faq__item">
+          <summary class="faq__question" aria-expanded="false">
+            Vocês fazem óculos com minha receita médica?
+            <span class="faq__arrow" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </span>
+          </summary>
+          <div class="faq__answer">
+            <p>Sim! Atendemos com receita médica para qualquer grau. Basta trazer sua receita atualizada (validade de até 1 ano) e nossa equipe cuida de todo o processo de montagem com precisão.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question" aria-expanded="false">
+            Qual o prazo para ficar pronto?
+            <span class="faq__arrow" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </span>
+          </summary>
+          <div class="faq__answer">
+            <p>Óculos solares e armações sem lentes ficam disponíveis imediatamente. Óculos de grau têm prazo médio de 5 a 10 dias úteis, dependendo do tipo de lente solicitado.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question" aria-expanded="false">
+            Vocês oferecem garantia nos produtos?
+            <span class="faq__arrow" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </span>
+          </summary>
+          <div class="faq__answer">
+            <p>Todos os nossos produtos possuem garantia de 90 dias contra defeitos de fabricação. Além disso, oferecemos manutenção gratuita de ajuste por 6 meses após a compra.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question" aria-expanded="false">
+            Como funciona o atendimento personalizado?
+            <span class="faq__arrow" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </span>
+          </summary>
+          <div class="faq__answer">
+            <p>Nossa equipe analisa o formato do seu rosto, seu estilo de vida e preferências de estética para indicar os modelos mais adequados. Você pode agendar um horário exclusivo pelo WhatsApp.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question" aria-expanded="false">
+            Quais formas de pagamento são aceitas?
+            <span class="faq__arrow" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </span>
+          </summary>
+          <div class="faq__answer">
+            <p>Aceitamos cartão de crédito (até 12x), débito, PIX e dinheiro. Para parcelamento acima de 3x, consulte as condições pelo WhatsApp.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       7. CTA FINAL
+  ═══════════════════════════════════════════ -->
+  <section class="cta-final" id="contato" aria-labelledby="ctaHeading">
+    <div class="cta-final__bg" aria-hidden="true">
+      <div class="cta-final__orb cta-final__orb--1"></div>
+      <div class="cta-final__orb cta-final__orb--2"></div>
+    </div>
+    <div class="container cta-final__inner">
+      <div class="cta-final__content" data-animate="fade-up">
+        <span class="section__tag section__tag--light">Pronto para começar?</span>
+        <h2 class="cta-final__title" id="ctaHeading">
+          Encontre o óculos<br />
+          <em>perfeito</em> hoje mesmo
+        </h2>
+        <p class="cta-final__subtitle">
+          Fale com nossa equipe pelo WhatsApp e receba atendimento exclusivo.<br class="hide-mobile" />
+          É rápido, fácil e sem compromisso.
+        </p>
+        <a href="https://wa.me/5531900000000?text=Olá!%20Quero%20encontrar%20o%20óculos%20ideal"
+           class="btn btn--white btn--lg"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Falar no WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       8. FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+
+      <!-- Coluna 1: Marca -->
+      <div class="footer__brand">
+        <a href="#hero" class="header__logo footer__logo" aria-label="Menina dos Olhos">
+          <svg class="logo__icon" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20 2C10 2 2 12 2 12C2 12 10 22 20 22C30 22 38 12 38 12C38 12 30 2 20 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="20" cy="12" r="5" fill="currentColor"/>
+            <circle cx="21.5" cy="10.5" r="1.5" fill="var(--dark)"/>
+          </svg>
+          <span class="logo__text">Menina dos Olhos</span>
+        </a>
+        <p class="footer__tagline">Conforto, beleza e qualidade<br />para o seu olhar.</p>
+        <!-- Redes sociais -->
+        <div class="footer__social" aria-label="Redes sociais">
+          <a href="#" class="social__link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" class="social__link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/5531900000000" class="social__link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coluna 2: Links -->
+      <nav class="footer__nav" aria-label="Links do rodapé">
+        <h3 class="footer__nav-title">Navegação</h3>
+        <ul class="footer__nav-list" role="list">
+          <li><a href="#categorias">Produtos</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#vitrine">Vitrine</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <!-- Coluna 3: Produtos -->
+      <div class="footer__nav">
+        <h3 class="footer__nav-title">Produtos</h3>
+        <ul class="footer__nav-list" role="list">
+          <li><a href="#vitrine">Óculos de grau</a></li>
+          <li><a href="#vitrine">Óculos solar</a></li>
+          <li><a href="#vitrine">Armações</a></li>
+          <li><a href="#vitrine">Lentes de contato</a></li>
+          <li><a href="#vitrine">Acessórios</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 4: Contato -->
+      <div class="footer__contact">
+        <h3 class="footer__nav-title">Contato</h3>
+        <ul class="footer__contact-list" role="list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Rua Exemplo, 123 – Centro<br />Belo Horizonte, MG</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.32h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16.92z"/>
+            </svg>
+            <a href="tel:+5531900000000">(31) 9 0000-0000</a>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <a href="mailto:contato@meninadosolhos.com.br">contato@meninadosolhos.com.br</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>© 2025 Menina dos Olhos. Todos os direitos reservados.</p>
+        <p>Desenvolvido com ♥ para o seu olhar</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════
+       BOTÃO FIXO WHATSAPP
+  ═══════════════════════════════════════════ -->
+  <a href="https://wa.me/5531900000000?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20produtos"
+     class="whatsapp-fab"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Falar no WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="whatsapp-fab__tooltip">Falar no WhatsApp</span>
+  </a>
+
+
+  <script>
+/**
+ * MENINA DOS OLHOS — script.js
+ * Funcionalidades:
+ *  1. Header sticky com classe ao scroll
+ *  2. Menu mobile toggle
+ *  3. Smooth scroll para links âncora
+ *  4. Scroll reveal (IntersectionObserver)
+ *  5. FAQ accordion com ARIA
+ *  6. Parallax leve na hero
+ *  7. Fechar menu mobile ao clicar em link
+ */
+
+'use strict';
+
+/* ─────────────────────────────────────────
+   UTILITÁRIOS
+───────────────────────────────────────── */
+/**
+ * Selector helper
+ * @param {string} sel - seletor CSS
+ * @param {Element} ctx - contexto (padrão: document)
+ */
+const $ = (sel, ctx = document) => ctx.querySelector(sel);
+const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+
+
+/* ─────────────────────────────────────────
+   1. HEADER STICKY — adiciona classe ao rolar
+───────────────────────────────────────── */
+(function initHeader() {
+  const header = $('#header');
+  if (!header) return;
+
+  const SCROLL_THRESHOLD = 20;
+
+  function onScroll() {
+    const scrolled = window.scrollY > SCROLL_THRESHOLD;
+    header.classList.toggle('is-scrolled', scrolled);
+  }
+
+  // Throttle para performance
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        onScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Checar estado inicial
+  onScroll();
+})();
+
+
+/* ─────────────────────────────────────────
+   2. MENU MOBILE — toggle acessível
+───────────────────────────────────────── */
+(function initMobileMenu() {
+  const toggle = $('#menuToggle');
+  const menu   = $('#mobileMenu');
+  if (!toggle || !menu) return;
+
+  let isOpen = false;
+
+  function openMenu() {
+    isOpen = true;
+    toggle.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+    menu.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    isOpen = false;
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+    menu.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', () => {
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Fechar ao pressionar ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) closeMenu();
+  });
+
+  // Fechar ao clicar fora
+  document.addEventListener('click', (e) => {
+    if (isOpen && !menu.contains(e.target) && !toggle.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // Fechar ao clicar em link do menu
+  $$('.mobile-menu__link', menu).forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+})();
+
+
+/* ─────────────────────────────────────────
+   3. SMOOTH SCROLL — links âncora
+───────────────────────────────────────── */
+(function initSmoothScroll() {
+  const headerHeight = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--header-h') || '72'
+  );
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+
+    const targetId = link.getAttribute('href').slice(1);
+    if (!targetId) return;
+
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    e.preventDefault();
+
+    const top = target.getBoundingClientRect().top
+              + window.scrollY
+              - headerHeight
+              - 12; // pequena folga extra
+
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+})();
+
+
+/* ─────────────────────────────────────────
+   4. SCROLL REVEAL — IntersectionObserver
+───────────────────────────────────────── */
+(function initScrollReveal() {
+  const elements = $$('[data-animate]');
+  if (!elements.length) return;
+
+  // Verificar suporte (fallback: mostrar tudo)
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const el    = entry.target;
+        const delay = parseInt(el.dataset.delay || '0');
+
+        setTimeout(() => {
+          el.classList.add('is-visible');
+        }, delay);
+
+        // Observar uma única vez
+        observer.unobserve(el);
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px',
+    }
+  );
+
+  elements.forEach(el => observer.observe(el));
+})();
+
+
+/* ─────────────────────────────────────────
+   5. FAQ ACCORDION — ARIA & animação
+───────────────────────────────────────── */
+(function initFaq() {
+  const items = $$('.faq__item');
+  if (!items.length) return;
+
+  items.forEach((item) => {
+    const summary = item.querySelector('.faq__question');
+    if (!summary) return;
+
+    item.addEventListener('toggle', () => {
+      const open = item.open;
+      summary.setAttribute('aria-expanded', String(open));
+    });
+
+    // Impedir fechamento duplo-clique rápido no Safari
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (item.open) {
+        item.open = false;
+      } else {
+        item.open = true;
+      }
+    });
+  });
+})();
+
+
+/* ─────────────────────────────────────────
+   6. PARALLAX LEVE — Hero orbs
+───────────────────────────────────────── */
+(function initParallax() {
+  const orbs = $$('.hero__orb');
+  if (!orbs.length) return;
+
+  // Checar preferência de movimento reduzido
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) return;
+
+  const speeds = [0.03, 0.05, 0.02];
+
+  let lastY = 0;
+  let rafId = null;
+
+  function applyParallax() {
+    const scrollY = window.scrollY;
+    if (scrollY === lastY) {
+      rafId = requestAnimationFrame(applyParallax);
+      return;
+    }
+    lastY = scrollY;
+
+    orbs.forEach((orb, i) => {
+      const speed = speeds[i] || 0.03;
+      const yMove = scrollY * speed;
+      orb.style.transform = `translateY(${yMove}px)`;
+    });
+
+    rafId = requestAnimationFrame(applyParallax);
+  }
+
+  // Iniciar apenas quando a hero está visível
+  const hero = document.getElementById('hero');
+  if (!hero) return;
+
+  const heroObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        rafId = requestAnimationFrame(applyParallax);
+      } else {
+        cancelAnimationFrame(rafId);
+      }
+    },
+    { threshold: 0 }
+  );
+
+  heroObserver.observe(hero);
+})();
+
+
+/* ─────────────────────────────────────────
+   7. ACTIVE NAV LINK — highlight ao scroll
+───────────────────────────────────────── */
+(function initActiveNav() {
+  const sections = $$('section[id], .cta-final[id]');
+  const navLinks = $$('.nav__link');
+  if (!sections.length || !navLinks.length) return;
+
+  const headerH = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--header-h') || '72'
+  );
+
+  function updateActive() {
+    const scrollMid = window.scrollY + headerH + 80;
+    let current = '';
+
+    sections.forEach((section) => {
+      if (section.offsetTop <= scrollMid) {
+        current = section.id;
+      }
+    });
+
+    navLinks.forEach((link) => {
+      const href = link.getAttribute('href').replace('#', '');
+      link.classList.toggle('is-active', href === current);
+    });
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateActive();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateActive();
+})();
+
+
+/* ─────────────────────────────────────────
+   8. HOVER TILT SUTIL — Cards de produto
+───────────────────────────────────────── */
+(function initCardTilt() {
+  // Só em desktop (pointer: fine)
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const cards = $$('.produto-card, .categoria-card');
+
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect   = card.getBoundingClientRect();
+      const cx     = rect.left + rect.width  / 2;
+      const cy     = rect.top  + rect.height / 2;
+      const dx     = (e.clientX - cx) / (rect.width  / 2);
+      const dy     = (e.clientY - cy) / (rect.height / 2);
+      const tiltX  = dy * -3;   // inclinação max ±3deg
+      const tiltY  = dx *  3;
+
+      card.style.transform = `translateY(-6px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+      card.style.transition = 'transform 0.1s ease';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+    });
+  });
+})();
+
+
+/* ─────────────────────────────────────────
+   9. CONTADOR ANIMADO — Trust numbers
+───────────────────────────────────────── */
+(function initCounters() {
+  const targets = $$('.trust__item strong');
+  if (!targets.length) return;
+
+  const config = [
+    { el: targets[0], end: 500, suffix: '+' },
+    { el: targets[1], end: 100, suffix: '+' },
+    { el: targets[2], end: 5,   suffix: '★', decimals: 0 },
+  ];
+
+  let triggered = false;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting || triggered) return;
+      triggered = true;
+
+      config.forEach(({ el, end, suffix, decimals = 0 }) => {
+        animateCount(el, 0, end, 1400, suffix, decimals);
+      });
+
+      observer.disconnect();
+    },
+    { threshold: 0.5 }
+  );
+
+  if (targets[0]) observer.observe(targets[0].closest('.hero__trust') || targets[0]);
+
+  /**
+   * Anima um número de start até end em duration ms
+   */
+  function animateCount(el, start, end, duration, suffix = '', decimals = 0) {
+    const startTime = performance.now();
+    const range = end - start;
+
+    function step(now) {
+      const elapsed  = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // easeOutQuart
+      const ease = 1 - Math.pow(1 - progress, 4);
+      const value = (start + range * ease).toFixed(decimals);
+
+      el.textContent = value + suffix;
+
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+})();
+
+
+/* ─────────────────────────────────────────
+   INIT — Log de versão
+───────────────────────────────────────── */
+console.info(
+  '%c👁 Menina dos Olhos %cv1.0',
+  'color: #438BC9; font-weight: bold; font-size: 14px;',
+  'color: #53B851; font-weight: normal; font-size: 12px;'
+);
+
+  </script>
+</body>
+</html>
