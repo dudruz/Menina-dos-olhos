@@ -1541,241 +1541,88 @@ em { font-style: normal; }
 /* ─────────────────────────────────────────
    CONSULTA COM OPTOMETRISTA
 ───────────────────────────────────────── */
-.consulta {
-  background: var(--dark);
-  position: relative;
+.consulta { background: var(--dark); position: relative; }
+.consulta::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(83,184,81,.3),transparent); }
+.consulta__layout { display:grid; grid-template-columns:380px 1fr; gap:var(--spacing-2xl); align-items:start; }
+.consulta__agenda { display:flex; flex-direction:column; gap:var(--spacing-md); position:sticky; top:calc(var(--header-h) + 24px); }
+.agenda__card { background:var(--surface); border:1px solid rgba(67,139,201,.2); border-radius:var(--radius-lg); padding:var(--spacing-xl); box-shadow:var(--shadow-md),0 0 40px rgba(67,139,201,.08); }
+.agenda__header { display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--spacing-lg); }
+.agenda__icon { width:44px; height:44px; }
+.agenda__badge { font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:4px 12px; border-radius:var(--radius-full); background:rgba(67,139,201,.12); color:var(--blue); border:1px solid rgba(67,139,201,.25); }
+.agenda__date { margin-bottom:var(--spacing-lg); }
+.agenda__day { display:block; font-family:var(--font-display); font-size:1.55rem; font-weight:800; background:var(--grad-accent); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.agenda__meta { display:flex; flex-direction:column; gap:10px; margin-bottom:var(--spacing-lg); padding-bottom:var(--spacing-lg); border-bottom:1px solid var(--border-soft); }
+.agenda__meta-item { display:flex; align-items:center; gap:10px; font-size:.88rem; color:var(--ui-gray); }
+.agenda__meta-item svg { color:var(--blue); flex-shrink:0; }
+.agenda__note { text-align:center; font-size:.75rem; color:var(--text-muted); margin-top:var(--spacing-sm); }
+.agenda__tip { display:flex; align-items:flex-start; gap:10px; padding:var(--spacing-md); background:rgba(83,184,81,.06); border:1px solid rgba(83,184,81,.18); border-radius:var(--radius-md); font-size:.84rem; color:var(--ui-gray); line-height:1.6; }
+.agenda__tip svg { color:var(--green); flex-shrink:0; margin-top:2px; }
+.agenda__tip strong { color:var(--white); }
+.consulta__info { display:flex; flex-direction:column; gap:var(--spacing-lg); }
+.medico__card { display:flex; align-items:center; gap:var(--spacing-lg); padding:var(--spacing-xl); background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius-lg); transition:border-color var(--duration-base) var(--ease); }
+.medico__card:hover { border-color:rgba(67,139,201,.3); }
+.medico__avatar { width:80px; height:80px; border-radius:50%; flex-shrink:0; overflow:hidden; box-shadow:0 0 0 3px rgba(67,139,201,.25); }
+.medico__avatar svg { width:100%; height:100%; }
+.medico__nome { font-size:1.05rem; font-weight:700; color:var(--white); margin-bottom:4px; }
+.medico__titulo { font-size:.82rem; color:var(--blue); font-weight:500; display:block; margin-bottom:var(--spacing-sm); }
+.medico__tags { display:flex; flex-wrap:wrap; gap:6px; }
+.medico__tag { font-size:.72rem; font-weight:600; padding:3px 10px; border-radius:var(--radius-full); background:rgba(67,139,201,.08); border:1px solid rgba(67,139,201,.2); color:var(--ui-gray); }
+.procedimento__bloco { padding:var(--spacing-xl); background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius-lg); transition:border-color var(--duration-base) var(--ease); }
+.procedimento__bloco:hover { border-color:rgba(67,139,201,.25); }
+.procedimento__bloco--highlight { border-color:rgba(83,184,81,.2); background:linear-gradient(135deg,var(--surface) 0%,rgba(83,184,81,.04) 100%); }
+.procedimento__titulo { display:flex; align-items:center; gap:10px; font-size:1rem; font-weight:700; color:var(--white); margin-bottom:var(--spacing-md); }
+.procedimento__bloco > p { font-size:.9rem; color:var(--ui-gray); line-height:1.7; }
+.procedimento__bloco > p strong { color:var(--white); }
+.procedimento__steps { list-style:none; display:flex; flex-direction:column; gap:var(--spacing-md); }
+.procedimento__steps li { display:flex; gap:var(--spacing-md); align-items:flex-start; }
+.step__num { flex-shrink:0; width:32px; height:32px; border-radius:var(--radius-sm); background:var(--grad-accent); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:.72rem; font-weight:800; color:var(--white); }
+.procedimento__steps strong { display:block; font-size:.9rem; font-weight:700; color:var(--white); margin-bottom:4px; }
+.procedimento__steps p { font-size:.84rem; color:var(--ui-gray); margin:0; }
+.procedimento__checks { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.procedimento__checks li { display:flex; align-items:flex-start; gap:10px; font-size:.88rem; color:var(--ui-gray); }
+.procedimento__checks li span { color:var(--green); font-weight:700; flex-shrink:0; margin-top:1px; }
+
+/* ─────────────────────────────────────────
+   LOCALIZAÇÃO
+───────────────────────────────────────── */
+.localizacao { background:var(--dark-2); position:relative; }
+.localizacao::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(67,139,201,.3),transparent); }
+.localizacao__layout { display:grid; grid-template-columns:1fr 420px; gap:var(--spacing-2xl); align-items:start; }
+.mapa__wrap { position:relative; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-md); }
+.mapa__iframe { display:block; width:100%; height:400px; filter:grayscale(30%) invert(8%) hue-rotate(190deg); border:0; }
+.mapa__open-link { display:inline-flex; align-items:center; gap:8px; position:absolute; bottom:16px; right:16px; padding:8px 16px; background:rgba(8,13,24,.9); backdrop-filter:blur(8px); border:1px solid var(--border); border-radius:var(--radius-full); font-size:.78rem; font-weight:600; color:var(--white); transition:all var(--duration-base) var(--ease); }
+.mapa__open-link:hover { background:var(--blue); border-color:var(--blue); }
+.localizacao__info { display:flex; flex-direction:column; gap:var(--spacing-md); }
+.contato__bloco { padding:var(--spacing-lg); background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius-md); transition:border-color var(--duration-base) var(--ease); }
+.contato__bloco:hover { border-color:rgba(67,139,201,.25); }
+.contato__titulo { display:flex; align-items:center; gap:8px; font-size:.88rem; font-weight:700; color:var(--white); margin-bottom:var(--spacing-sm); text-transform:uppercase; letter-spacing:.06em; }
+.contato__bloco > p { font-size:.9rem; color:var(--ui-gray); line-height:1.7; margin-bottom:var(--spacing-md); }
+.contato__canal { display:flex; align-items:center; gap:var(--spacing-md); padding:var(--spacing-md); border-radius:var(--radius-md); border:1px solid var(--border-soft); margin-bottom:10px; transition:all var(--duration-base) var(--ease); }
+.contato__canal strong { display:block; font-size:.92rem; font-weight:700; color:var(--white); }
+.contato__canal span { font-size:.75rem; color:var(--text-muted); }
+.contato__canal svg { flex-shrink:0; }
+.contato__canal--wa { color:var(--white); }
+.contato__canal--wa svg { color:#25D366; }
+.contato__canal--wa:hover { border-color:rgba(37,211,102,.4); background:rgba(37,211,102,.06); transform:translateX(4px); }
+.contato__canal--ig svg { color:#E1306C; }
+.contato__canal--ig:hover { border-color:rgba(225,48,108,.4); background:rgba(225,48,108,.06); transform:translateX(4px); }
+.horario__list { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.horario__list li { display:flex; justify-content:space-between; align-items:center; font-size:.88rem; color:var(--ui-gray); padding:6px 0; border-bottom:1px solid var(--border-soft); }
+.horario__list li:last-child { border-bottom:none; }
+.horario__list strong { color:var(--white); font-weight:600; }
+.horario__closed span, .horario__closed strong { color:var(--text-muted); opacity:.6; }
+
+/* Responsive */
+@media (max-width:1000px) {
+  .consulta__layout { grid-template-columns:1fr; }
+  .consulta__agenda { position:static; max-width:480px; margin-inline:auto; width:100%; }
+  .localizacao__layout { grid-template-columns:1fr; }
 }
-.consulta::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(83,184,81,0.3), transparent);
-}
-.consulta__layout {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: var(--spacing-2xl);
-  align-items: start;
-}
-.consulta__agenda {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  position: sticky;
-  top: calc(var(--header-h) + 24px);
-}
-.agenda__card {
-  background: var(--surface);
-  border: 1px solid rgba(67,139,201,0.2);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-md), 0 0 40px rgba(67,139,201,0.08);
-}
-.agenda__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--spacing-lg);
-}
-.agenda__icon { width: 44px; height: 44px; }
-.agenda__badge {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
-  background: rgba(67,139,201,0.12);
-  color: var(--blue);
-  border: 1px solid rgba(67,139,201,0.25);
-}
-.agenda__date { margin-bottom: var(--spacing-lg); }
-.agenda__day {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.55rem;
-  font-weight: 800;
-  color: var(--white);
-  line-height: 1.2;
-  background: var(--grad-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.agenda__meta {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: var(--spacing-lg);
-  padding-bottom: var(--spacing-lg);
-  border-bottom: 1px solid var(--border-soft);
-}
-.agenda__meta-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.88rem;
-  color: var(--ui-gray);
-}
-.agenda__meta-item svg { color: var(--blue); flex-shrink: 0; }
-.agenda__note {
-  text-align: center;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-top: var(--spacing-sm);
-}
-.agenda__tip {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: var(--spacing-md);
-  background: rgba(83,184,81,0.06);
-  border: 1px solid rgba(83,184,81,0.18);
-  border-radius: var(--radius-md);
-  font-size: 0.84rem;
-  color: var(--ui-gray);
-  line-height: 1.6;
-}
-.agenda__tip svg { color: var(--green); flex-shrink: 0; margin-top: 2px; }
-.agenda__tip strong { color: var(--white); }
-.consulta__info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-}
-.medico__card {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-lg);
-  padding: var(--spacing-xl);
-  background: var(--surface);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius-lg);
-  transition: border-color var(--duration-base) var(--ease);
-}
-.medico__card:hover { border-color: rgba(67,139,201,0.3); }
-.medico__avatar {
-  width: 80px; height: 80px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  overflow: hidden;
-  box-shadow: 0 0 0 3px rgba(67,139,201,0.25);
-}
-.medico__avatar svg { width: 100%; height: 100%; }
-.medico__nome {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-.medico__titulo {
-  font-size: 0.82rem;
-  color: var(--blue);
-  font-weight: 500;
-  display: block;
-  margin-bottom: var(--spacing-sm);
-}
-.medico__tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.medico__tag {
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: var(--radius-full);
-  background: rgba(67,139,201,0.08);
-  border: 1px solid rgba(67,139,201,0.2);
-  color: var(--ui-gray);
-}
-.procedimento__bloco {
-  padding: var(--spacing-xl);
-  background: var(--surface);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius-lg);
-  transition: border-color var(--duration-base) var(--ease);
-}
-.procedimento__bloco:hover { border-color: rgba(67,139,201,0.25); }
-.procedimento__bloco--highlight {
-  border-color: rgba(83,184,81,0.2);
-  background: linear-gradient(135deg, var(--surface) 0%, rgba(83,184,81,0.04) 100%);
-}
-.procedimento__titulo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: var(--spacing-md);
-}
-.procedimento__bloco > p {
-  font-size: 0.9rem;
-  color: var(--ui-gray);
-  line-height: 1.7;
-}
-.procedimento__bloco > p strong { color: var(--white); }
-.procedimento__steps {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-.procedimento__steps li {
-  display: flex;
-  gap: var(--spacing-md);
-  align-items: flex-start;
-}
-.step__num {
-  flex-shrink: 0;
-  width: 32px; height: 32px;
-  border-radius: var(--radius-sm);
-  background: var(--grad-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: var(--white);
-}
-.procedimento__steps strong {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-.procedimento__steps p {
-  font-size: 0.84rem;
-  color: var(--ui-gray);
-  margin: 0;
-}
-.procedimento__checks {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.procedimento__checks li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 0.88rem;
-  color: var(--ui-gray);
-}
-.procedimento__checks li span {
-  color: var(--green);
-  font-weight: 700;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-@media (max-width: 1000px) {
-  .consulta__layout { grid-template-columns: 1fr; }
-  .consulta__agenda { position: static; max-width: 480px; margin-inline: auto; width: 100%; }
-}
-@media (max-width: 600px) {
-  .medico__card { flex-direction: column; text-align: center; }
-  .medico__tags { justify-content: center; }
-  .agenda__day { font-size: 1.3rem; }
+@media (max-width:600px) {
+  .medico__card { flex-direction:column; text-align:center; }
+  .medico__tags { justify-content:center; }
+  .agenda__day { font-size:1.3rem; }
+  .mapa__iframe { height:280px; }
 }
 
   </style>
@@ -1806,13 +1653,14 @@ em { font-style: normal; }
           <li><a href="#diferenciais" class="nav__link">Diferenciais</a></li>
           <li><a href="#vitrine" class="nav__link">Vitrine</a></li>
           <li><a href="#consulta" class="nav__link">Consulta</a></li>
+          <li><a href="#localizacao" class="nav__link">Localização</a></li>
           <li><a href="#depoimentos" class="nav__link">Depoimentos</a></li>
           <li><a href="#faq" class="nav__link">FAQ</a></li>
         </ul>
       </nav>
 
       <!-- CTA header -->
-      <a href="https://wa.me/5531900000000?text=Olá!%20Quero%20um%20orçamento" 
+      <a href="https://wa.me/553183623050?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento.%20Podem%20me%20atender%3F%20😊" 
          class="btn btn--primary btn--sm" 
          target="_blank" rel="noopener noreferrer"
          aria-label="Solicitar orçamento via WhatsApp">
@@ -1835,10 +1683,11 @@ em { font-style: normal; }
         <li><a href="#diferenciais" class="mobile-menu__link">Diferenciais</a></li>
         <li><a href="#vitrine" class="mobile-menu__link">Vitrine</a></li>
         <li><a href="#consulta" class="mobile-menu__link">Consulta</a></li>
+        <li><a href="#localizacao" class="mobile-menu__link">Localização</a></li>
         <li><a href="#depoimentos" class="mobile-menu__link">Depoimentos</a></li>
         <li><a href="#faq" class="mobile-menu__link">FAQ</a></li>
         <li>
-          <a href="https://wa.me/5531900000000?text=Olá!%20Quero%20um%20orçamento" 
+          <a href="https://wa.me/553183623050?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento.%20Podem%20me%20atender%3F%20😊" 
              class="btn btn--primary btn--full" 
              target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
@@ -1883,7 +1732,7 @@ em { font-style: normal; }
         </p>
 
         <div class="hero__ctas" data-animate="fade-up" data-delay="300">
-          <a href="https://wa.me/5531900000000?text=Olá!%20Quero%20um%20orçamento"
+          <a href="https://wa.me/553183623050?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento.%20Podem%20me%20atender%3F%20😊"
              class="btn btn--primary btn--lg"
              target="_blank" rel="noopener noreferrer"
              aria-label="Solicitar orçamento no WhatsApp">
@@ -2235,7 +2084,7 @@ em { font-style: normal; }
               </defs>
             </svg>
             <div class="produto-card__overlay">
-              <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Classic%20Blue"
+              <a href="https://wa.me/553183623050?text=Ol%C3%A1!%20Vi%20o%20modelo%20*Classic%20Blue*%20no%20site%20e%20tenho%20interesse!%20Podem%20me%20ajudar%3F%20%F0%9F%A4%93"
                  class="btn btn--primary btn--sm"
                  target="_blank" rel="noopener noreferrer">
                 Quero este
@@ -2246,7 +2095,7 @@ em { font-style: normal; }
             <span class="produto-card__cat">Óculos de grau</span>
             <h3 class="produto-card__name">Classic Blue</h3>
             <p class="produto-card__desc">Armação fina, leve e elegante. Ideal para uso diário.</p>
-            <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Classic%20Blue"
+            <a href="https://wa.me/553183623050?text=Ol%C3%A1!%20Vi%20o%20modelo%20*Classic%20Blue*%20no%20site%20e%20tenho%20interesse!%20Podem%20me%20ajudar%3F%20%F0%9F%A4%93"
                class="btn btn--primary btn--full"
                target="_blank" rel="noopener noreferrer">
               Quero este
@@ -2274,7 +2123,7 @@ em { font-style: normal; }
               </defs>
             </svg>
             <div class="produto-card__overlay">
-              <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Verde%20Summer"
+              <a href="https://wa.me/553183623050?text=Ol%C3%A1!%20Vi%20o%20modelo%20*Verde%20Summer*%20no%20site%20e%20tenho%20interesse!%20Podem%20me%20contar%20mais%3F%20%F0%9F%98%8E"
                  class="btn btn--primary btn--sm"
                  target="_blank" rel="noopener noreferrer">
                 Quero este
@@ -2285,7 +2134,7 @@ em { font-style: normal; }
             <span class="produto-card__cat">Óculos solar</span>
             <h3 class="produto-card__name">Verde Summer</h3>
             <p class="produto-card__desc">Cat-eye moderno com proteção UV400. Perfeito para o verão.</p>
-            <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Verde%20Summer"
+            <a href="https://wa.me/553183623050?text=Ol%C3%A1!%20Vi%20o%20modelo%20*Verde%20Summer*%20no%20site%20e%20tenho%20interesse!%20Podem%20me%20contar%20mais%3F%20%F0%9F%98%8E"
                class="btn btn--primary btn--full"
                target="_blank" rel="noopener noreferrer">
               Quero este
@@ -2315,7 +2164,7 @@ em { font-style: normal; }
               </defs>
             </svg>
             <div class="produto-card__overlay">
-              <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Dark%20Navy"
+              <a href="https://wa.me/553183623050?text=Ol%C3%A1!%20Vi%20o%20modelo%20*Dark%20Navy*%20no%20site%20e%20tenho%20interesse!%20Como%20fa%C3%A7o%20para%20adquirir%3F%20%F0%9F%95%B6%EF%B8%8F"
                  class="btn btn--primary btn--sm"
                  target="_blank" rel="noopener noreferrer">
                 Quero este
@@ -2326,7 +2175,7 @@ em { font-style: normal; }
             <span class="produto-card__cat">Armação</span>
             <h3 class="produto-card__name">Dark Navy</h3>
             <p class="produto-card__desc">Quadrado masculino/feminino com acabamento premium fosco.</p>
-            <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Dark%20Navy"
+            <a href="https://wa.me/553183623050?text=Ol%C3%A1!%20Vi%20o%20modelo%20*Dark%20Navy*%20no%20site%20e%20tenho%20interesse!%20Como%20fa%C3%A7o%20para%20adquirir%3F%20%F0%9F%95%B6%EF%B8%8F"
                class="btn btn--primary btn--full"
                target="_blank" rel="noopener noreferrer">
               Quero este
@@ -2356,7 +2205,7 @@ em { font-style: normal; }
               </defs>
             </svg>
             <div class="produto-card__overlay">
-              <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Steel%20Round"
+              <a href="https://wa.me/553183623050?text=Ol%C3%A1!%20Vi%20o%20modelo%20*Steel%20Round*%20no%20site%20e%20tenho%20interesse!%20Podem%20me%20ajudar%3F%20%E2%9C%A8"
                  class="btn btn--primary btn--sm"
                  target="_blank" rel="noopener noreferrer">
                 Quero este
@@ -2367,7 +2216,7 @@ em { font-style: normal; }
             <span class="produto-card__cat">Óculos de grau</span>
             <h3 class="produto-card__name">Steel Round</h3>
             <p class="produto-card__desc">Redondo metálico ultraleve. Estilo retrô com toque contemporâneo.</p>
-            <a href="https://wa.me/5531900000000?text=Quero%20o%20modelo%20Steel%20Round"
+            <a href="https://wa.me/553183623050?text=Ol%C3%A1!%20Vi%20o%20modelo%20*Steel%20Round*%20no%20site%20e%20tenho%20interesse!%20Podem%20me%20ajudar%3F%20%E2%9C%A8"
                class="btn btn--primary btn--full"
                target="_blank" rel="noopener noreferrer">
               Quero este
@@ -2378,7 +2227,7 @@ em { font-style: normal; }
       </div>
 
       <div class="vitrine__cta" data-animate="fade-up">
-        <a href="https://wa.me/5531900000000?text=Quero%20ver%20todos%20os%20modelos"
+        <a href="https://wa.me/553183623050?text=Ol%C3%A1!%20Quero%20ver%20o%20cat%C3%A1logo%20completo%20de%20%C3%B3culos%20da%20Menina%20dos%20Olhos.%20Podem%20me%20enviar%3F%20%F0%9F%91%93"
            class="btn btn--outline btn--lg"
            target="_blank" rel="noopener noreferrer">
           Ver catálogo completo
@@ -2397,188 +2246,106 @@ em { font-style: normal; }
   <!-- ═══════════════════════════════════════════
        CONSULTA COM OPTOMETRISTA
        ATUALIZAR MENSALMENTE:
-         - Data: <span id="consultaData">
-         - Hora: <span id="consultaHora">
-         - Vagas: <span id="consultaVagas">
+         · Data  → <span id="consultaData">
+         · Hora  → <span id="consultaHora">
+         · Vagas → <span id="consultaVagas">
   ═══════════════════════════════════════════ -->
   <section class="section consulta" id="consulta" aria-labelledby="consultaHeading">
     <div class="container">
-
       <div class="section__header" data-animate="fade-up">
-        <span class="section__tag">Saude Visual</span>
-        <h2 class="section__title" id="consultaHeading">
-          Exame de vista com<br />optometrista
-        </h2>
-        <p class="section__subtitle">
-          Uma vez por mes, nosso optometrista realiza exames completos aqui na loja.<br />
-          Cuide da sua saude visual com quem entende de optica.
-        </p>
+        <span class="section__tag">Saúde Visual</span>
+        <h2 class="section__title" id="consultaHeading">Exame de vista com<br />optometrista</h2>
+        <p class="section__subtitle">Uma vez por mês, nosso optometrista realiza exames completos aqui na loja.<br />Cuide da sua saúde visual com quem entende de óptica.</p>
       </div>
-
       <div class="consulta__layout">
 
         <!-- Coluna esquerda: agenda -->
         <div class="consulta__agenda" data-animate="fade-up" data-delay="0">
-
           <div class="agenda__card">
             <div class="agenda__header">
               <div class="agenda__icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="6" y="10" width="36" height="32" rx="6" stroke="url(#calGrad)" stroke-width="2" fill="none"/>
-                  <line x1="6" y1="20" x2="42" y2="20" stroke="url(#calGrad)" stroke-width="2"/>
-                  <line x1="16" y1="6" x2="16" y2="14" stroke="url(#calGrad)" stroke-width="2.5" stroke-linecap="round"/>
-                  <line x1="32" y1="6" x2="32" y2="14" stroke="url(#calGrad)" stroke-width="2.5" stroke-linecap="round"/>
-                  <rect x="15" y="26" width="8" height="8" rx="2" fill="url(#calGrad)" opacity="0.7"/>
-                  <defs>
-                    <linearGradient id="calGrad" x1="6" y1="6" x2="42" y2="42">
-                      <stop offset="0%" stop-color="#438BC9"/>
-                      <stop offset="100%" stop-color="#53B851"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
+                <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="32" rx="6" stroke="url(#calG)" stroke-width="2" fill="none"/><line x1="6" y1="20" x2="42" y2="20" stroke="url(#calG)" stroke-width="2"/><line x1="16" y1="6" x2="16" y2="14" stroke="url(#calG)" stroke-width="2.5" stroke-linecap="round"/><line x1="32" y1="6" x2="32" y2="14" stroke="url(#calG)" stroke-width="2.5" stroke-linecap="round"/><rect x="15" y="26" width="8" height="8" rx="2" fill="url(#calG)" opacity="0.8"/><defs><linearGradient id="calG" x1="6" y1="6" x2="42" y2="42"><stop offset="0%" stop-color="#438BC9"/><stop offset="100%" stop-color="#53B851"/></linearGradient></defs></svg>
               </div>
-              <span class="agenda__badge">Proxima data</span>
+              <span class="agenda__badge">Próxima data</span>
             </div>
 
-            <!-- ===== EDITAR TODO MES: data, hora e vagas ===== -->
+            <!-- ===== EDITAR TODO MÊS ===== -->
             <div class="agenda__date">
               <span class="agenda__day" id="consultaData">19 de Abril de 2025</span>
             </div>
             <div class="agenda__meta">
               <div class="agenda__meta-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <span id="consultaHora">09h às 17h</span>
               </div>
               <div class="agenda__meta-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 <span id="consultaVagas">8 vagas disponíveis</span>
               </div>
               <div class="agenda__meta-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                </svg>
-                <span>Na propria loja – Rua Exemplo, 123</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Rua Antônio Bandeira, 1020 – Tupi B, BH</span>
               </div>
             </div>
-            <!-- ================================================ -->
+            <!-- =============================== -->
 
-            <a href="https://wa.me/5531900000000?text=Ola!%20Quero%20agendar%20meu%20exame%20de%20vista"
-               class="btn btn--primary btn--full"
-               target="_blank" rel="noopener noreferrer">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
+            <a href="https://wa.me/553183623050?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20meu%20exame%20de%20vista%20com%20o%20optometrista!%20%F0%9F%93%85"
+               class="btn btn--primary btn--full" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               Agendar pelo WhatsApp
             </a>
             <p class="agenda__note">Agendamento gratuito &middot; Atendimento por ordem de chegada</p>
           </div>
 
-          <div class="agenda__tip" data-animate="fade-up" data-delay="100">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-            </svg>
-            <p>Os exames acontecem <strong>uma vez por mes</strong>. Fique de olho nas nossas redes sociais para saber a proxima data disponivel.</p>
+          <div class="agenda__tip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <p>Os exames acontecem <strong>uma vez por mês</strong>. Fique de olho nas nossas redes sociais para saber a próxima data.</p>
           </div>
         </div>
 
-        <!-- Coluna direita: medico + procedimento -->
+        <!-- Coluna direita: médico + procedimento -->
         <div class="consulta__info" data-animate="fade-left" data-delay="150">
-
-          <!-- Card medico -->
           <div class="medico__card">
             <div class="medico__avatar" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="50" fill="url(#medBg)"/>
-                <circle cx="50" cy="38" r="18" fill="white" fill-opacity="0.3"/>
-                <path d="M18 85C18 68 32 56 50 56C68 56 82 68 82 85" fill="white" fill-opacity="0.3"/>
-                <path d="M34 58 L30 88 L70 88 L66 58 Q50 64 34 58Z" fill="white" fill-opacity="0.15"/>
-                <line x1="50" y1="64" x2="50" y2="80" stroke="url(#medGrad)" stroke-width="2"/>
-                <line x1="44" y1="70" x2="56" y2="70" stroke="url(#medGrad)" stroke-width="2"/>
-                <defs>
-                  <linearGradient id="medBg" x1="0" y1="0" x2="100" y2="100">
-                    <stop offset="0%" stop-color="#2F446D"/><stop offset="100%" stop-color="#438BC9"/>
-                  </linearGradient>
-                  <linearGradient id="medGrad" x1="0" y1="0" x2="100" y2="100">
-                    <stop offset="0%" stop-color="#438BC9"/><stop offset="100%" stop-color="#53B851"/>
-                  </linearGradient>
-                </defs>
-              </svg>
+              <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="50" fill="url(#mBg)"/><circle cx="50" cy="38" r="18" fill="white" fill-opacity="0.3"/><path d="M18 85C18 68 32 56 50 56C68 56 82 68 82 85" fill="white" fill-opacity="0.3"/><path d="M34 58 L30 88 L70 88 L66 58 Q50 64 34 58Z" fill="white" fill-opacity="0.15"/><line x1="50" y1="64" x2="50" y2="80" stroke="url(#mG)" stroke-width="2"/><line x1="44" y1="70" x2="56" y2="70" stroke="url(#mG)" stroke-width="2"/><defs><linearGradient id="mBg" x1="0" y1="0" x2="100" y2="100"><stop offset="0%" stop-color="#2F446D"/><stop offset="100%" stop-color="#438BC9"/></linearGradient><linearGradient id="mG" x1="0" y1="0" x2="100" y2="100"><stop offset="0%" stop-color="#438BC9"/><stop offset="100%" stop-color="#53B851"/></linearGradient></defs></svg>
             </div>
             <div class="medico__info">
-              <!-- ===== EDITAR: nome e registro do profissional ===== -->
+              <!-- ===== EDITAR: nome e CRO do profissional ===== -->
               <h3 class="medico__nome">Dr(a). Nome do Profissional</h3>
               <span class="medico__titulo">Optometrista &middot; CRO 00.000</span>
-              <!-- ==================================================== -->
+              <!-- ============================================== -->
               <div class="medico__tags">
-                <span class="medico__tag">Exame de refracao</span>
-                <span class="medico__tag">Adaptacao de lentes</span>
-                <span class="medico__tag">Saude ocular</span>
+                <span class="medico__tag">Exame de refração</span>
+                <span class="medico__tag">Adaptação de lentes</span>
+                <span class="medico__tag">Saúde ocular</span>
               </div>
             </div>
           </div>
 
-          <!-- O que e optometrista -->
           <div class="procedimento__bloco">
             <h4 class="procedimento__titulo">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#438BC9" stroke-width="2" aria-hidden="true">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
-              </svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#438BC9" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               O que é um optometrista?
             </h4>
-            <p>O <strong>optometrista</strong> é o profissional de saúde especializado em avaliação visual, diagnóstico de ametropias (miopia, hipermetropia, astigmatismo e presbiopia) e prescrição de óculos e lentes de contato. Atua de forma complementar ao oftalmologista no cuidado da saúde ocular cotidiana.</p>
+            <p>O <strong>optometrista</strong> é o profissional de saúde especializado em avaliação visual, diagnóstico de ametropias (miopia, hipermetropia, astigmatismo e presbiopia) e prescrição de óculos e lentes de contato. Atua de forma complementar ao oftalmologista no cuidado cotidiano da visão.</p>
           </div>
 
-          <!-- Como e o exame -->
           <div class="procedimento__bloco">
             <h4 class="procedimento__titulo">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53B851" stroke-width="2" aria-hidden="true">
-                <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-              </svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#53B851" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
               Como é o exame de refração?
             </h4>
             <ol class="procedimento__steps">
-              <li>
-                <span class="step__num">01</span>
-                <div>
-                  <strong>Anamnese</strong>
-                  <p>O profissional conversa sobre seus hábitos visuais, queixas e histórico de uso de óculos.</p>
-                </div>
-              </li>
-              <li>
-                <span class="step__num">02</span>
-                <div>
-                  <strong>Acuidade visual</strong>
-                  <p>Leitura da tabela optométrica para medir a nitidez da visão à distância e de perto.</p>
-                </div>
-              </li>
-              <li>
-                <span class="step__num">03</span>
-                <div>
-                  <strong>Refração subjetiva</strong>
-                  <p>Com lentes de teste, o profissional determina o grau ideal para cada olho.</p>
-                </div>
-              </li>
-              <li>
-                <span class="step__num">04</span>
-                <div>
-                  <strong>Emissão da receita</strong>
-                  <p>Receita óptica emitida na hora. Duração média: 20 a 30 minutos por paciente.</p>
-                </div>
-              </li>
+              <li><span class="step__num">01</span><div><strong>Anamnese</strong><p>Conversa sobre hábitos visuais, queixas e histórico de uso de óculos.</p></div></li>
+              <li><span class="step__num">02</span><div><strong>Acuidade visual</strong><p>Leitura da tabela optométrica para medir a nitidez da visão.</p></div></li>
+              <li><span class="step__num">03</span><div><strong>Refração subjetiva</strong><p>Com lentes de teste, o profissional determina o grau ideal para cada olho.</p></div></li>
+              <li><span class="step__num">04</span><div><strong>Emissão da receita</strong><p>Receita óptica na hora. Duração: 20 a 30 minutos por paciente.</p></div></li>
             </ol>
           </div>
 
-          <!-- Quem deve fazer -->
           <div class="procedimento__bloco procedimento__bloco--highlight">
             <h4 class="procedimento__titulo">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#438BC9" stroke-width="2" aria-hidden="true">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
-              </svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#438BC9" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               Quem deve fazer o exame?
             </h4>
             <ul class="procedimento__checks">
@@ -2589,7 +2356,6 @@ em { font-style: normal; }
               <li><span>&#10003;</span> Crianças em idade escolar (6 anos ou mais)</li>
             </ul>
           </div>
-
         </div>
       </div>
     </div>
@@ -2783,6 +2549,102 @@ em { font-style: normal; }
   </section>
 
 
+
+
+  <!-- ═══════════════════════════════════════════
+       LOCALIZAÇÃO & CONTATO
+  ═══════════════════════════════════════════ -->
+  <section class="section localizacao" id="localizacao" aria-labelledby="localizacaoHeading">
+    <div class="container">
+      <div class="section__header" data-animate="fade-up">
+        <span class="section__tag">Onde estamos</span>
+        <h2 class="section__title" id="localizacaoHeading">Venha nos visitar</h2>
+        <p class="section__subtitle">Estamos em Belo Horizonte, prontos para te receber com atendimento exclusivo.</p>
+      </div>
+
+      <div class="localizacao__layout">
+
+        <!-- Mapa -->
+        <div class="mapa__wrap" data-animate="fade-up" data-delay="0">
+          <iframe
+            class="mapa__iframe"
+            src="https://maps.google.com/maps?q=Rua+Ant%C3%B4nio+Bandeira%2C+1020%2C+Tupi%2C+Belo+Horizonte%2C+MG%2C+31844-130&output=embed"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização da Ótica Menina dos Olhos">
+          </iframe>
+          <a href="https://maps.google.com/maps?q=Rua+Ant%C3%B4nio+Bandeira%2C+1020%2C+Tupi%2C+Belo+Horizonte%2C+MG%2C+31844-130"
+             class="mapa__open-link"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Abrir no Google Maps">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Abrir no Google Maps
+          </a>
+        </div>
+
+        <!-- Informações de contato -->
+        <div class="localizacao__info" data-animate="fade-left" data-delay="100">
+
+          <div class="contato__bloco">
+            <h3 class="contato__titulo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#438BC9" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Endereço
+            </h3>
+            <p>Rua Antônio Bandeira, 1020<br />Tupi B – Belo Horizonte, MG<br />CEP 31844-130</p>
+            <a href="https://maps.google.com/maps?q=Rua+Ant%C3%B4nio+Bandeira%2C+1020%2C+Tupi%2C+Belo+Horizonte%2C+MG"
+               class="btn btn--ghost btn--sm"
+               target="_blank" rel="noopener noreferrer">
+              Como chegar
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="contato__bloco">
+            <h3 class="contato__titulo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#438BC9" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.32h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16.92z"/></svg>
+              Fale conosco
+            </h3>
+            <a href="https://wa.me/553183623050?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Menina%20dos%20Olhos%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es!%20%F0%9F%98%8A"
+               class="contato__canal contato__canal--wa"
+               target="_blank" rel="noopener noreferrer">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <div>
+                <strong>(31) 8362-3050</strong>
+                <span>WhatsApp · Resposta rápida</span>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/oticameninadosolhos2021/"
+               class="contato__canal contato__canal--ig"
+               target="_blank" rel="noopener noreferrer">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <div>
+                <strong>@oticameninadosolhos2021</strong>
+                <span>Instagram · Ver fotos e promoções</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="contato__bloco">
+            <h3 class="contato__titulo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#438BC9" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Horário de funcionamento
+            </h3>
+            <ul class="horario__list">
+              <li><span>Segunda a Sexta</span><strong>09h – 18h</strong></li>
+              <li><span>Sábado</span><strong>09h – 13h</strong></li>
+              <li class="horario__closed"><span>Domingo</span><strong>Fechado</strong></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════════════════
        7. CTA FINAL
   ═══════════════════════════════════════════ -->
@@ -2802,7 +2664,7 @@ em { font-style: normal; }
           Fale com nossa equipe pelo WhatsApp e receba atendimento exclusivo.<br class="hide-mobile" />
           É rápido, fácil e sem compromisso.
         </p>
-        <a href="https://wa.me/5531900000000?text=Olá!%20Quero%20encontrar%20o%20óculos%20ideal"
+        <a href="https://wa.me/553183623050?text=Olá!%20Estou%20em%20busca%20do%20óculos%20perfeito%20e%20gostaria%20de%20atendimento%20personalizado.%20Podem%20me%20ajudar%3F%20😊"
            class="btn btn--white btn--lg"
            target="_blank" rel="noopener noreferrer"
            aria-label="Falar no WhatsApp">
@@ -2835,7 +2697,7 @@ em { font-style: normal; }
         <p class="footer__tagline">Conforto, beleza e qualidade<br />para o seu olhar.</p>
         <!-- Redes sociais -->
         <div class="footer__social" aria-label="Redes sociais">
-          <a href="#" class="social__link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/oticameninadosolhos2021/" class="social__link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
@@ -2845,7 +2707,7 @@ em { font-style: normal; }
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
           </a>
-          <a href="https://wa.me/5531900000000" class="social__link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/553183623050" class="social__link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
@@ -2860,6 +2722,8 @@ em { font-style: normal; }
           <li><a href="#categorias">Produtos</a></li>
           <li><a href="#diferenciais">Diferenciais</a></li>
           <li><a href="#vitrine">Vitrine</a></li>
+          <li><a href="#consulta">Consulta</a></li>
+          <li><a href="#localizacao">Localização</a></li>
           <li><a href="#depoimentos">Depoimentos</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -2885,13 +2749,13 @@ em { font-style: normal; }
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
             </svg>
-            <span>Rua Exemplo, 123 – Centro<br />Belo Horizonte, MG</span>
+            <span>Rua Antônio Bandeira, 1020<br />Tupi B – Belo Horizonte, MG<br />CEP 31844-130</span>
           </li>
           <li>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.32h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16.92z"/>
             </svg>
-            <a href="tel:+5531900000000">(31) 9 0000-0000</a>
+            <a href="tel:+553183623050">(31) 8362-3050</a>
           </li>
           <li>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -2916,7 +2780,7 @@ em { font-style: normal; }
   <!-- ═══════════════════════════════════════════
        BOTÃO FIXO WHATSAPP
   ═══════════════════════════════════════════ -->
-  <a href="https://wa.me/5531900000000?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20produtos"
+  <a href="https://wa.me/553183623050?text=Olá!%20Vim%20pelo%20site%20da%20Menina%20dos%20Olhos%20e%20gostaria%20de%20mais%20informações!%20😊"
      class="whatsapp-fab"
      target="_blank" rel="noopener noreferrer"
      aria-label="Falar no WhatsApp">
