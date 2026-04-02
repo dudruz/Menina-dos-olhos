@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oticameninaadosolhos.com.br/sitemap.xml
