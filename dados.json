@@ -1,0 +1,196 @@
+{
+  "empresa": {
+    "nome": "Menina dos Olhos Ótica",
+    "descricao": "Óptica premium em Belo Horizonte especializada em óculos de grau, solar e armações com atendimento personalizado.",
+    "telefone": "+553183623050",
+    "whatsapp": "553183623050",
+    "email": "contato@meninadosolhos.com.br",
+    "endereco": {
+      "rua": "Rua Antônio Bandeira",
+      "numero": 1020,
+      "bairro": "Tupi B",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "cep": "31844-130"
+    },
+    "coordenadas": {
+      "latitude": -19.8945,
+      "longitude": -43.9558
+    },
+    "horario": {
+      "semana": "09:00 - 18:00",
+      "sabado": "09:00 - 13:00",
+      "domingo": "Fechado"
+    },
+    "redes_sociais": {
+      "instagram": "https://www.instagram.com/oticameninadosolhos2021/",
+      "facebook": "#",
+      "whatsapp": "https://wa.me/553183623050"
+    }
+  },
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Óculos de Grau",
+      "descricao": "Conforto, leveza e estilo para acompanhar sua rotina com mais precisão visual.",
+      "imagem": "14.jpeg",
+      "destaque": false,
+      "promocao": false
+    },
+    {
+      "id": 2,
+      "nome": "Óculos Solar",
+      "descricao": "Proteção com personalidade para quem quer se destacar com segurança e elegância.",
+      "imagem": "009.jpeg",
+      "destaque": true,
+      "promocao": true,
+      "promocao_texto": "Promoção"
+    },
+    {
+      "id": 3,
+      "nome": "Armações",
+      "descricao": "Modelos versáteis para valorizar seu rosto e expressar seu estilo com autenticidade.",
+      "imagem": "0002.jpeg",
+      "destaque": false,
+      "promocao": false
+    }
+  ],
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Classic Brown",
+      "categoria": "Óculos de Sol",
+      "descricao": "Armação premium e elegante. Ideal para uso durante o dia.",
+      "imagem": "001.jpeg",
+      "tipo_media": "imagem",
+      "promocao": true,
+      "promocao_texto": "🔥 Promoção",
+      "whatsapp_mensagem": "Olá! Vi o modelo *Classic Blue* no site e tenho interesse! Podem me ajudar? 🤓"
+    },
+    {
+      "id": 2,
+      "nome": "Óculos Solar Slim Urban",
+      "categoria": "Óculos solar",
+      "descricao": "Estilo moderno com design leve e lentes sofisticadas para o dia a dia.",
+      "imagem": "002.jpeg",
+      "tipo_media": "imagem",
+      "promocao": true,
+      "promocao_texto": "🔥 Promoção",
+      "whatsapp_mensagem": "Olá! Vi o modelo *Verde Summer* no site e tenho interesse! Podem me contar mais? 😎"
+    },
+    {
+      "id": 3,
+      "nome": "Óculos Solar Bold Premium",
+      "categoria": "Armação",
+      "descricao": "Proteção e atitude com design marcante para destacar seu estilo.",
+      "imagem": "VIDEO.mp4",
+      "tipo_media": "video",
+      "promocao": true,
+      "promocao_texto": "🔥 Promoção",
+      "whatsapp_mensagem": "Olá! Vi o modelo *Dark Navy* no site e tenho interesse! Como faço para adquirir? 🕶️"
+    }
+  ],
+  "diferenciais": [
+    {
+      "id": 1,
+      "titulo": "Atendimento personalizado",
+      "descricao": "Cada cliente recebe orientação exclusiva para encontrar o modelo ideal para seu rosto e estilo de vida.",
+      "icone": "dif1"
+    },
+    {
+      "id": 2,
+      "titulo": "Qualidade garantida",
+      "descricao": "Trabalhamos apenas com marcas reconhecidas e produtos com certificação óptica e proteção UV.",
+      "icone": "dif2"
+    },
+    {
+      "id": 3,
+      "titulo": "Ajuste perfeito",
+      "descricao": "Realizamos ajustes precisos para que seus óculos se encaixem com conforto total no seu rosto.",
+      "icone": "dif3"
+    },
+    {
+      "id": 4,
+      "titulo": "Variedade de modelos",
+      "descricao": "Mais de 100 modelos em catálogo, desde clássicos até tendências internacionais para todos os gostos.",
+      "icone": "dif4"
+    }
+  ],
+  "depoimentos": [
+    {
+      "id": 1,
+      "avaliacao": 5,
+      "texto": "Fiz meu exame e já saí com tudo resolvido. Em apenas 2 dias úteis meu óculos ficou pronto, mesmo com lentes com tratamentos especiais. Atendimento excelente, suporte o tempo todo e muita agilidade. Recomendo demais!",
+      "autor": "Eduardo Moreira",
+      "local": "Belo Horizonte, MG",
+      "avatar": "av1"
+    },
+    {
+      "id": 2,
+      "avaliacao": 5,
+      "texto": "Comprei meu primeiro óculos solar aqui e me apaixonei. O atendimento é diferenciado, explicaram tudo sobre a proteção UV e encontrei o modelo ideal em minutos.",
+      "autor": "Rafael S.",
+      "local": "Nova Lima, MG",
+      "avatar": "av2"
+    },
+    {
+      "id": 3,
+      "avaliacao": 5,
+      "texto": "Variedade incrível e preço justo. O ajuste que fizeram foi impecável — nunca tive tanto conforto com óculos de grau. Já indiquei para todos da família!",
+      "autor": "Juliana P.",
+      "local": "Contagem, MG",
+      "avatar": "av3"
+    }
+  ],
+  "faq": [
+    {
+      "id": 1,
+      "pergunta": "Vocês fazem óculos com minha receita médica?",
+      "resposta": "Sim! Atendemos com receita médica para qualquer grau. Basta trazer sua receita atualizada (validade de até 1 ano) e nossa equipe cuida de todo o processo de montagem com precisão."
+    },
+    {
+      "id": 2,
+      "pergunta": "Qual o prazo para ficar pronto?",
+      "resposta": "Óculos solares e armações sem lentes ficam disponíveis imediatamente. Óculos de grau têm prazo médio de 5 a 10 dias úteis, dependendo do tipo de lente solicitado."
+    },
+    {
+      "id": 3,
+      "pergunta": "Vocês oferecem garantia nos produtos?",
+      "resposta": "Todos os nossos produtos possuem garantia de 90 dias contra defeitos de fabricação. Além disso, oferecemos manutenção gratuita de ajuste por 6 meses após a compra."
+    },
+    {
+      "id": 4,
+      "pergunta": "Como funciona o atendimento personalizado?",
+      "resposta": "Nossa equipe analisa o formato do seu rosto, seu estilo de vida e preferências de estética para indicar os modelos mais adequados. Você pode agendar um horário exclusivo pelo WhatsApp."
+    },
+    {
+      "id": 5,
+      "pergunta": "Quais formas de pagamento são aceitas?",
+      "resposta": "Aceitamos cartão de crédito (até 12x), débito, PIX e dinheiro. Para parcelamento acima de 3x, consulte as condições pelo WhatsApp."
+    }
+  ],
+  "links_whatsapp": {
+    "orcamento_header": "https://wa.me/553183623050?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento.%20Podem%20me%20atender%3F%20😊",
+    "catalogo_completo": "https://wa.me/553183623050?text=Olá!%20Quero%20ver%20o%20catálogo%20completo%20de%20óculos%20da%20Menina%20dos%20Olhos.%20Podem%20me%20enviar%3F%20👓",
+    "cta_final": "https://wa.me/553183623050?text=Olá!%20Estou%20em%20busca%20do%20óculos%20perfeito%20e%20gostaria%20de%20atendimento%20personalizado.%20Podem%20me%20ajudar%3F%20😊",
+    "fab_fixo": "https://wa.me/553183623050?text=Olá!%20Vim%20pelo%20site%20da%20Menina%20dos%20Olhos%20e%20gostaria%20de%20mais%20informações!%20😊"
+  },
+  "midia": {
+    "imagens": [
+      "14.jpeg",
+      "009.jpeg",
+      "0002.jpeg",
+      "001.jpeg",
+      "002.jpeg"
+    ],
+    "videos": [
+      "VIDEO.mp4"
+    ]
+  },
+  "estatisticas": {
+    "clientes_satisfeitos": 500,
+    "modelos_disponiveis": 100,
+    "avaliacao_media": 5,
+    "tempo_producao_dias": "5-10"
+  }
+}
